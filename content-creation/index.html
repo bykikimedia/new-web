@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinic Content Creation | Reels, AI Avatars, UGC & Video — By Kiki Media</title>
+
+  <link rel="icon" type="image/png" href="../brand_assets/favicon.png">
+  <link rel="apple-touch-icon" href="../brand_assets/favicon.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Scroll-stopping reels, AI avatar videos, UGC, and content creation exclusively for health, beauty, aesthetic, and wellness clinics. Based in Melbourne, working worldwide.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bykikimedia.com/content-creation">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #ffffff;
+      --bg2:       #f8f8f6;
+      --bg3:       #f0eeeb;
+      --accent:    #758a71;
+      --accent-l:  #8fa48b;
+      --dark:      #1a1a1a;
+      --text:      #444444;
+      --muted:     #888888;
+      --border:    rgba(0,0,0,0.08);
+      --shadow:    0 2px 20px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 40px rgba(0,0,0,0.09);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+      --ff-disp:   'Montserrat', sans-serif;
+      --ff-brand:  'Anonymous Pro', monospace;
+      --ff-body:   'Anonymous Pro', monospace;
+      --ease:      cubic-bezier(.25,.46,.45,.94);
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; cursor: pointer; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; }
+
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
+    p, li { font-family: 'Anonymous Pro', monospace; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index:1000;
+      display: flex; align-items:center; justify-content:space-between;
+      padding: 1.5rem 5rem;
+      transition: padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+    }
+    nav.sc {
+      padding: 1rem 5rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-logo { height: 42px; opacity:.9; transition: opacity .2s; }
+    .nav-logo:hover { opacity:1; }
+    .nav-links { display:flex; align-items:center; gap:2.5rem; list-style:none; }
+    .nav-links a {
+      font-family: var(--ff-brand); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
+      color: var(--dark); transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .nav-active { color: var(--accent); }
+    .nav-cta {
+      background: #1a1a1a !important; color: #fff !important;
+      padding: .5rem 1.3rem !important; font-size:.68rem !important;
+      border-radius: 50px; transition: background .2s !important;
+      font-family: var(--ff-brand) !important; letter-spacing:.12em !important;
+      text-transform: uppercase !important; border: none;
+    }
+    .nav-cta:hover { background: #333 !important; }
+    .ham { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; }
+    .ham span { display:block; width:22px; height:1.5px; background:var(--dark); transition:.25s; }
+
+    .m-nav {
+      position:fixed; inset:0; background:var(--bg); z-index:999;
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2.5rem;
+      transform: translateX(100%); transition: transform .4s var(--ease);
+    }
+    .m-nav.open { transform: translateX(0); }
+    .m-nav a { font-family:var(--ff-disp); font-size:2rem; color:var(--dark); transition:color .2s; }
+    .m-nav a:hover { color:var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; min-height: 90vh;
+      display: flex; align-items: center;
+      overflow: hidden; background: #ffffff;
+    }
+    .grid-bg { position:absolute; inset:0; z-index:0; background:#ffffff; }
+    .grid-static {
+      position:absolute; inset:-40px; opacity:0.05;
+      background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+      background-size:40px 40px; animation: gridScroll 4s linear infinite;
+    }
+    .grid-reveal {
+      position:absolute; inset:-40px; opacity:0.4;
+      background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+      background-size:40px 40px; animation: gridScroll 4s linear infinite;
+      -webkit-mask-image: radial-gradient(300px circle at -500px -500px, black, transparent);
+      mask-image: radial-gradient(300px circle at -500px -500px, black, transparent);
+    }
+    @keyframes gridScroll {
+      0%   { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+    .grid-orb { position:absolute; border-radius:50%; pointer-events:none; z-index:1; }
+    .grid-orb-orange { right:-20%; top:-20%; width:40%; aspect-ratio:1/1; background:rgba(249,115,22,.28); filter:blur(120px); }
+    .grid-orb-primary { right:10%; top:-10%; width:20%; aspect-ratio:1/1; background:rgba(117,138,113,.28); filter:blur(100px); }
+    .grid-orb-blue { left:-10%; bottom:-20%; width:40%; aspect-ratio:1/1; background:rgba(59,130,246,.28); filter:blur(120px); }
+    #particles { position:absolute; inset:0; z-index:2; pointer-events:none; }
+    .pt { position:absolute; border-radius:50%; animation: pfloat linear infinite; }
+    @keyframes pfloat {
+      0%   { opacity:0; transform:translateY(0) scale(1); }
+      10%  { opacity:.45; }
+      90%  { opacity:.15; }
+      100% { opacity:0; transform:translateY(-100vh) scale(0); }
+    }
+
+    .hero-content {
+      position:relative; z-index:10; width:100%; max-width:1400px; margin:0 auto;
+      padding:9rem 5rem 6rem;
+      display:grid; grid-template-columns:38% 62%; gap:4rem; align-items:center;
+    }
+    .hero-left { display:flex; flex-direction:column; align-items:flex-start; }
+    .hero-eyebrow {
+      font-family:var(--ff-brand); font-size:.68rem; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--accent); margin-bottom:1.5rem;
+      display:flex; align-items:center; gap:1rem;
+    }
+    .hero-eyebrow::after { content:''; width:36px; height:1px; background:var(--accent); opacity:.5; }
+    .hero-h1 {
+      font-family:'Montserrat', sans-serif; font-size:clamp(2rem,4.2vw,3.6rem);
+      font-weight:900; line-height:1.1; color:var(--dark); margin-bottom:1.5rem; letter-spacing:-0.02em;
+    }
+    .hero-h1 em { font-style:normal; color:var(--accent); }
+    .hero-sub {
+      font-family:var(--ff-brand); font-size:clamp(.84rem,1.8vw,1rem);
+      color:#1a1a1a; max-width:480px; margin:0 0 2.8rem; line-height:1.85; letter-spacing:.02em;
+    }
+    .hero-btns { display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+
+    .hero-proof-badge {
+      display:inline-flex; align-items:center; gap:.75rem;
+      background:#fff; border-radius:50px; padding:.45rem 1.2rem .45rem .45rem;
+      box-shadow:0 2px 16px rgba(0,0,0,.09); border:1px solid rgba(0,0,0,.07);
+      margin-bottom:2rem;
+    }
+    .hero-proof-avatars { display:flex; }
+    .hero-proof-av {
+      width:30px; height:30px; border-radius:50%; background:var(--accent); border:2px solid #fff;
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--ff-brand); font-size:.5rem; color:#fff; font-weight:700;
+      margin-left:-8px; flex-shrink:0;
+    }
+    .hero-proof-av:first-child { margin-left:0; }
+    .hero-proof-av:nth-child(2) { background:#8fa48b; }
+    .hero-proof-av:nth-child(3) { background:#a4b8a0; }
+    .hero-proof-av:nth-child(4) { background:#b8c9b5; }
+    .hero-proof-av:nth-child(5) { background:#758a71; }
+    .hero-proof-text {
+      font-family:var(--ff-brand); font-size:.68rem; letter-spacing:.04em; color:var(--dark);
+      display:flex; align-items:center; gap:.35rem; white-space:nowrap;
+    }
+    .hero-proof-star { color:#f59e0b; font-size:.72rem; }
+
+    .hero-right { display:flex; align-items:center; justify-content:center; position:relative; overflow:visible !important; z-index:1; }
+    .hero-portrait-wrap {
+      position:relative; width:100%; max-width:640px;
+      padding:1.5rem 1rem 3.5rem 2.5rem; overflow:visible !important; z-index:2;
+    }
+    .hero-portrait {
+      width:100%; border-radius:20px; overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.12);
+      transform:rotate(-2deg); transition:transform .5s var(--ease);
+      position:relative; z-index:1;
+    }
+    .hero-portrait:hover { transform:rotate(0deg); }
+    .hero-portrait img { width:100%; height:auto; object-fit:contain; object-position:center top; display:block; }
+    .satisfied-badge {
+      position:absolute; bottom:0; left:-20px;
+      background:white; border-radius:16px; padding:12px 18px;
+      box-shadow:0 8px 32px rgba(0,0,0,.12); display:flex; align-items:center; z-index:10;
+    }
+    .badge-text { display:flex; align-items:center; gap:.4rem; white-space:nowrap; }
+    .badge-percent { font-family:'Montserrat', sans-serif; font-weight:800; font-size:1.2rem; color:#1a1a1a; line-height:1; }
+    .badge-label { font-family:'Anonymous Pro', monospace; font-size:.75rem; color:#666; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      font-family:var(--ff-brand); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+      padding:.9rem 2.4rem; transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+      display:inline-flex; align-items:center; justify-content:center; position:relative; overflow:hidden; border-radius:50px;
+      cursor:pointer; line-height:1; text-decoration:none;
+    }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-fill { background:#1a1a1a; color:#fff; border:1.5px solid #1a1a1a; }
+    .btn-fill:hover { background:#333; box-shadow:0 10px 28px rgba(0,0,0,.22); }
+    .btn-ghost { background:var(--accent); color:#fff; border:1.5px solid var(--accent); }
+    .btn-ghost:hover { background:#637a5f; box-shadow:0 10px 28px rgba(117,138,113,.35); }
+    .btn-white { background:#ffffff; color:#1a1a1a; border:1.5px solid #ffffff; }
+    .btn-white:hover { background:#f0f0f0; }
+    .btn-non-hero { display:inline-flex; align-items:center; gap:8px; }
+    @keyframes arrowBounce {
+      0%,100% { transform:translateX(0); }
+      50%      { transform:translateX(5px); }
+    }
+    .btn-arrow { display:inline-block; animation: arrowBounce 1.2s ease-in-out infinite; font-style:normal; }
+
+    .hero-scroll {
+      position:absolute; bottom:2.8rem; left:0; right:0;
+      z-index:11; display:flex; flex-direction:column; align-items:center; gap:.5rem;
+    }
+    .hero-scroll span { font-family:var(--ff-brand); font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--dark); }
+    .scroll-bar { width:1px; height:48px; background:linear-gradient(to bottom,var(--accent),transparent); animation:sbar 1.6s ease-in-out infinite; }
+    @keyframes sbar { 0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top} 50%{opacity:1;transform:scaleY(1);transform-origin:top} }
+
+    /* ── SECTIONS ── */
+    .sec { padding:8rem 5rem; max-width:1400px; margin:0 auto; }
+    .sec-full { padding:8rem 5rem; }
+    .sec-inner { max-width:1400px; margin:0 auto; }
+    .lbl {
+      font-family:var(--ff-brand); font-size:.64rem; letter-spacing:.3em; text-transform:uppercase;
+      color:var(--accent); margin-bottom:.9rem; display:flex; align-items:center; gap:1rem;
+    }
+    .lbl::after { content:''; width:48px; height:1px; background:var(--accent); opacity:.5; }
+    .lbl-c { justify-content:center; }
+    .lbl-c::before { content:''; width:48px; height:1px; background:var(--accent); opacity:.5; }
+    .h2 {
+      font-family:var(--ff-disp); font-size:clamp(2.4rem,5vw,4rem);
+      font-weight:800; line-height:1.08; color:var(--dark); margin-bottom:1.25rem;
+    }
+    .h2 em { font-style:normal; color:var(--accent); }
+    .divider { height:1px; background:var(--border); }
+    .section-divider {
+      width:90%; max-width:1200px; margin:0 auto; height:1px;
+      background:linear-gradient(to right, transparent 0%, #e0e0e0 20%, #e0e0e0 80%, transparent 100%);
+    }
+
+    /* ── SERVICES ── */
+    #services { background:#ffffff; }
+    .svc-head { text-align:center; margin-bottom:2rem; }
+    .sgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; perspective:1200px; align-items:stretch; }
+    .scard {
+      background:var(--bg); padding:2.5rem; position:relative; overflow:hidden;
+      border-radius:12px; border:1px solid var(--border);
+      box-shadow: var(--shadow); transition: box-shadow .35s, transform .35s;
+      display:flex; flex-direction:column; align-items:flex-start;
+    }
+    .scard:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .scard::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:var(--accent); border-radius:12px 12px 0 0;
+      transform:scaleX(0); transform-origin:left; transition:transform .4s var(--ease);
+    }
+    .scard:hover::before { transform:scaleX(1); }
+    .snum { font-family:var(--ff-disp); font-size:4.5rem; font-weight:700; color:rgba(117,138,113,.07); line-height:1; position:absolute; top:1.5rem; right:2rem; }
+    .sico { width:46px; height:46px; color:var(--accent); margin-bottom:1.5rem; }
+    .stitle { font-family:var(--ff-disp); font-size:1.25rem; font-weight:600; color:var(--dark); margin-bottom:.9rem; line-height:1.3; min-height:3.2rem; display:flex; align-items:flex-start; }
+    .sdesc { font-size:.88rem; color:var(--text); line-height:1.78; margin-bottom:1.25rem; }
+    .stags { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .stag { font-family:var(--ff-brand); font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); border:1px solid rgba(117,138,113,.3); padding:.22rem .65rem; border-radius:50px; background:rgba(117,138,113,.05); }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; margin-bottom: 5rem;
+    }
+    .stat-cell { padding: 2.5rem 2rem; text-align: center; border-right: 1px solid var(--border); }
+    .stat-cell:last-child { border-right: none; }
+    .stat-n {
+      font-family: var(--ff-disp); font-size: clamp(2.4rem,5vw,3.8rem); font-weight: 800;
+      color: var(--accent); line-height: 1; margin-bottom: .4rem;
+      animation: statglow 3s ease-in-out infinite alternate;
+    }
+    .stat-l { font-family: var(--ff-brand); font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    @keyframes statglow {
+      0%   { text-shadow:0 0 0 rgba(117,138,113,0); }
+      100% { text-shadow:0 0 28px rgba(117,138,113,.4), 0 0 8px rgba(117,138,113,.2); }
+    }
+
+    /* ── WORK / PORTFOLIO ── */
+    #work { padding:60px 40px; background:#1a1a1a; }
+    .work-grid-wrap { position:relative; overflow:hidden; background:#1a1a1a; }
+    .work-grid-wrap .grid-bg { z-index:0; background:#1a1a1a; }
+    .work-grid-wrap .grid-static,
+    .work-grid-wrap .grid-reveal,
+    .work-grid-wrap .grid-orb { display:none; }
+    .work-grid-wrap .sec { position:relative; z-index:2; }
+
+    .work-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px; flex-wrap:wrap; gap:1rem; }
+    #work .h2 { color:#ffffff; }
+    #work .h2 em { color:var(--accent); }
+    #work .lbl { color:rgba(255,255,255,0.4); }
+    #work .lbl::after { background:rgba(255,255,255,0.2); }
+
+    .filters { display:flex; gap:8px; flex-wrap:wrap; }
+    .ftab {
+      font-family:var(--ff-brand); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;
+      padding:6px 18px; background:transparent; border:1px solid rgba(255,255,255,0.2); border-radius:20px; color:rgba(255,255,255,0.6);
+      transition: background .2s, color .2s, border-color .2s; cursor:pointer;
+    }
+    .ftab:hover { background:#ffffff; color:#111111; border-color:#ffffff; }
+    .ftab.on { background:#ffffff; color:#111111; border-color:#ffffff; }
+
+    /* ── VERTICAL VIDEO PORTFOLIO GRID ── */
+    .pgrid-video {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .pgrid-video .pi {
+      position: relative; overflow: hidden; border-radius: 16px;
+      cursor: pointer; transition: opacity .35s; isolation: isolate;
+      background: #111;
+    }
+    .pgrid-video .pi.gone { display:none; }
+    .pgrid-video .pi-in {
+      position: relative; overflow: hidden; border-radius: 16px;
+      aspect-ratio: 9/16;
+    }
+    .pgrid-video .pi-in img,
+    .pgrid-video .pi-in video {
+      width: 100%; height: 100%; display: block; object-fit: cover;
+      transition: transform .6s var(--ease);
+    }
+    .pgrid-video .pi:hover .pi-in img,
+    .pgrid-video .pi:hover .pi-in video {
+      transform: scale(1.04);
+    }
+    .ai-badge {
+      position:absolute; top:12px; right:12px;
+      background:rgba(10,10,9,.78); border:1px solid var(--accent);
+      color:var(--accent); font-family:'Anonymous Pro',monospace;
+      font-size:.56rem; letter-spacing:.1em; text-transform:uppercase;
+      padding:.22rem .65rem; border-radius:50px; z-index:5;
+    }
+    .pgrid-video .ov {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.5rem 1.25rem 1.25rem;
+      background: linear-gradient(to top, rgba(0,0,0,.88) 0%, rgba(0,0,0,.5) 55%, transparent 100%);
+      border-radius: 0 0 16px 16px;
+    }
+    .pgrid-video .ov-cat {
+      font-family: var(--ff-brand); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.7); margin-bottom: .3rem; display:block;
+    }
+    .pgrid-video .ov-title {
+      font-family: var(--ff-disp); font-size: clamp(.9rem,1.8vw,1.15rem);
+      font-weight: 800; color: #fff; line-height: 1.25; display:block; margin-bottom:.4rem;
+    }
+    .pgrid-video .ov-cta {
+      font-family: var(--ff-brand); font-size: .65rem; letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(255,255,255,.75); display:inline-block;
+    }
+    .pgrid-video .pi:hover .ov-cta { color: #fff; }
+
+    /* ── UGC SECTION ── */
+    #ugc {
+      position: relative; overflow: hidden;
+      min-height: 620px;
+    }
+    #ugc.sec-full { padding: 5rem 5rem; }
+    #ugc .sec-inner { max-width: 1100px; position: relative; z-index: 2; }
+
+    #ugc .ugc-bg-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block; z-index: 0;
+    }
+    #ugc .ugc-overlay {
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,.72);
+      z-index: 1; pointer-events: none;
+    }
+
+    .ugc-text {
+      display: flex; flex-direction: column; gap: 1.2rem;
+      max-width: 560px;
+    }
+    .ugc-label {
+      font-family: 'Anonymous Pro', monospace;
+      font-size: .72rem; letter-spacing: .15em;
+      color: var(--accent); text-transform: uppercase; margin: 0;
+    }
+    .ugc-h2 {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      line-height: 1.1; color: var(--dark); margin: 0;
+    }
+    .ugc-h2 span { color: #a4b8a0; }
+    .ugc-desc {
+      font-family: 'Anonymous Pro', monospace;
+      font-size: .95rem; line-height: 1.75; color: var(--text); margin: 0;
+    }
+    .ugc-list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .ugc-list li { font-family: 'Anonymous Pro', monospace; font-size: .9rem; color: var(--text); }
+    .ugc-price {
+      display: flex; align-items: baseline; gap: .4rem;
+      flex-wrap: wrap; margin: 0; padding: .3rem 0 0;
+    }
+    .ugc-price-from { font-family: var(--ff-brand); font-size: .72rem; color: #758a71; letter-spacing: .04em; text-transform: lowercase; }
+    .ugc-price-amount { font-family: var(--ff-disp); font-size: 1.6rem; font-weight: 800; color: #758a71; line-height: 1; }
+    .ugc-price-unit { font-family: var(--ff-brand); font-size: .72rem; color: #758a71; letter-spacing: .04em; }
+    .ugc-panel-cta {
+      display: inline-flex; align-items: center; gap: .65rem;
+      font-family: 'Anonymous Pro', monospace; font-size: .7rem;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: #ffffff; background: var(--dark);
+      padding: 15px 34px; border-radius: 50px;
+      transition: background .3s ease, transform .25s ease;
+      text-decoration: none; margin-top: .4rem; align-self: flex-start;
+    }
+    .ugc-panel-cta:hover { background: #333; transform: translateY(-2px); }
+    .ugc-panel-cta .btn-arr { display: inline-block; transition: transform .3s ease-in-out; }
+    .ugc-panel-cta:hover .btn-arr { transform: translateX(5px); }
+
+    @media (min-width: 769px) {
+      #ugc .sec-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 5rem;
+        align-items: center;
+      }
+    }
+    .ugc-iphone { display: none; }
+    @media (min-width: 769px) {
+      .ugc-iphone {
+        display: flex; justify-content: center; align-items: center;
+        text-decoration: none; flex-shrink: 0;
+      }
+      .iphone-frame {
+        width: 240px; background: #111; border-radius: 52px; padding: 6px;
+        box-shadow: 0 0 0 1px #3a3a3a, 0 0 0 2px #111, 0 28px 64px rgba(0,0,0,.38), inset 0 0 0 1px rgba(255,255,255,.06);
+        position: relative;
+      }
+      .iphone-frame::before {
+        content: ''; position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+        width: 70px; height: 20px; background: #111; border-radius: 20px; z-index: 4;
+      }
+      .iphone-screen { border-radius: 42px; overflow: hidden; position: relative; aspect-ratio: 9/20; background: #000; }
+      .iphone-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+      .iphone-ig-badge {
+        position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+        display: flex; align-items: center; gap: 5px;
+        background: rgba(255,255,255,.18); backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.28);
+        border-radius: 50px; padding: 6px 13px; color: #fff;
+        font-family: 'Anonymous Pro', monospace; font-size: .62rem; letter-spacing: .1em; white-space: nowrap;
+        transition: background .25s ease;
+      }
+      .ugc-iphone:hover .iphone-ig-badge { background: rgba(255,255,255,.3); }
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: #1a1a1a; padding: 50px 0 80px; overflow:hidden; }
+    .stagger-wrap { position:relative; height:440px; width:100%; user-select:none; }
+    .stagger-nav { display:flex; justify-content:center; gap:12px; margin-top:28px; }
+    .stagger-btn {
+      width:52px; height:52px; display:flex; align-items:center; justify-content:center;
+      background:#1e1e1e; border:2px solid rgba(255,255,255,0.15); color:#fff;
+      cursor:pointer; transition:background .2s, border-color .2s;
+    }
+    .stagger-btn:hover { background:#758a71; border-color:#758a71; }
+    .scard-t {
+      position:absolute; left:50%; top:50%;
+      padding:24px; border:2px solid rgba(255,255,255,0.1);
+      background:#1e1e1e; color:#fff; cursor:pointer;
+      transition:transform 0.5s ease, box-shadow 0.5s ease, background 0.3s ease;
+      box-sizing:border-box; overflow:hidden;
+      clip-path: polygon(40px 0%, calc(100% - 40px) 0%, 100% 40px, 100% 100%, calc(100% - 40px) 100%, 40px 100%, 0 100%, 0 0);
+    }
+    .scard-t.scard-center { background:#758a71; border-color:#758a71; box-shadow:0 8px 0 4px rgba(255,255,255,0.08); }
+    .scard-corner { position:absolute; display:block; width:71px; height:2px; background:rgba(255,255,255,0.18); right:-2px; top:38px; transform:rotate(45deg); transform-origin:top right; }
+    .scard-av { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.15); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:700; font-size:.9rem; margin-bottom:12px; box-shadow:3px 3px 0 rgba(0,0,0,0.2); flex-shrink:0; }
+    .scard-center .scard-av { background:rgba(255,255,255,0.25); }
+    .scard-stars { font-size:.95rem; color:#f59e0b; letter-spacing:.1em; margin-bottom:10px; line-height:1; }
+    .scard-quote { font-family:'Anonymous Pro',monospace; font-size:.86rem; line-height:1.65; color:rgba(255,255,255,0.72); margin:0 0 44px 0; display:-webkit-box; -webkit-line-clamp:5; line-clamp:5; -webkit-box-orient:vertical; overflow:hidden; }
+    .scard-center .scard-quote { color:rgba(255,255,255,0.92); }
+    .scard-by { position:absolute; bottom:20px; left:24px; right:24px; font-family:'Anonymous Pro',monospace; font-size:.72rem; font-style:italic; color:rgba(255,255,255,0.48); margin:0; }
+    .scard-center .scard-by { color:rgba(255,255,255,0.78); }
+
+    .client-logos { padding:3.5rem 2rem 3rem; text-align:center; }
+    .client-logos-label { font-family:var(--ff-brand); font-size:.65rem; letter-spacing:.28em; text-transform:uppercase; color:rgba(255,255,255,.65); margin-bottom:2.5rem; }
+    .logos-row { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:2.5rem 4.5rem; max-width:960px; margin:0 auto; }
+    .logo-item img { height:48px; width:auto; max-width:140px; object-fit:contain; display:block; filter:brightness(0) invert(1); opacity:.7; transition:opacity .3s ease, transform .3s ease; }
+    .logo-item img:hover { opacity:1; transform:scale(1.1); }
+
+    /* ── CTA ── */
+    #cta-section { background:#ffffff; }
+    .cta-inner { max-width:720px; margin:0 auto; text-align:center; }
+    .cta-inner p { font-family:var(--ff-brand); font-size:1rem; color:var(--text); line-height:1.8; margin-bottom:2.5rem; }
+    .cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      background:var(--dark); border-top:1px solid rgba(255,255,255,.08);
+      padding:2.5rem 5rem; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:1.25rem;
+    }
+    .flogo { height:30px; opacity:.85; }
+    .fcopy { font-family:var(--ff-brand); font-size:.62rem; letter-spacing:.08em; color:#fff; text-align:center; }
+    .flinks { display:flex; gap:2rem; list-style:none; justify-content:flex-end; }
+    .flinks a { font-family:var(--ff-brand); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:#fff; transition:.2s; }
+    .flinks a:hover { color:var(--accent-l); }
+
+    /* ── SCROLL REVEAL ── */
+    .rv { opacity:0; transform:translateY(28px); }
+    .rv.vis { animation:rvup .7s var(--ease) forwards; }
+    @keyframes rvup { to { opacity:1; transform:translateY(0); } }
+    .rvs > * { opacity:0; transform:translateY(20px); }
+    .rvs.vis > * { animation:rvup .6s var(--ease) forwards; }
+    .rvs.vis > *:nth-child(1){animation-delay:0s}
+    .rvs.vis > *:nth-child(2){animation-delay:.1s}
+    .rvs.vis > *:nth-child(3){animation-delay:.2s}
+    .rvs.vis > *:nth-child(4){animation-delay:.3s}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1200px){
+      .pgrid-video { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media(max-width:1100px){
+      nav,nav.sc{padding-left:2.5rem;padding-right:2.5rem}
+      .hero-content{grid-template-columns:1fr 1fr;gap:3rem;padding:8rem 3rem 5rem}
+      .sgrid{grid-template-columns:1fr 1fr;gap:1rem}
+    }
+    @media(max-width:860px){
+      .hero-content{grid-template-columns:1fr;padding:7rem 2rem 4rem;gap:3rem}
+      .hero-left{align-items:center;text-align:center}
+      .hero-eyebrow{justify-content:center}
+      .hero-sub{margin-left:auto;margin-right:auto}
+      .hero-btns{justify-content:center}
+      .hero-right{justify-content:center}
+      .hero-portrait-wrap{max-width:360px;padding:1rem 0 3rem}
+    }
+    @media(max-width:768px){
+      nav,nav.sc{padding-left:1.25rem;padding-right:1.25rem}
+      .nav-links{display:none} .ham{display:flex}
+      .sec{padding:5rem 1.25rem} .sec-full{padding:5rem 1.25rem}
+      .sgrid{grid-template-columns:1fr}
+      .scard{text-align:center;padding:2rem 1.5rem;align-items:center}
+      .stitle{justify-content:center}
+      .sico{margin-left:auto;margin-right:auto}
+      #work{padding:40px 20px}
+      .work-head{flex-direction:column;align-items:flex-start}
+      .pgrid-video{grid-template-columns:repeat(2,1fr);gap:1rem}
+      footer{padding:2rem 1.25rem;grid-template-columns:1fr;justify-items:center;text-align:center}
+      .flinks{flex-wrap:wrap;justify-content:center}
+      .stats-strip{grid-template-columns:1fr}
+      .stat-cell{border-right:none;border-bottom:1px solid var(--border)}
+      .stat-cell:last-child{border-bottom:none}
+      .hero-btns{flex-direction:column;width:100%}
+      .hero-btns a,.hero-btns button{width:100%;text-align:center}
+      .cta-btns{flex-direction:column;align-items:center}
+      #testimonials{padding:36px 0 60px}
+      .stagger-wrap{height:380px}
+      #ugc.sec-full{padding:3.5rem 1.25rem}
+    }
+    @media(max-width:480px){
+      .hero-content{padding:6rem 1.5rem 3rem}
+      .pgrid-video{grid-template-columns:1fr}
+    }
+
+    /* ── WHITE LABEL ── */
+    #white-label{background:#1a1a1a}
+    #white-label .lbl{color:rgba(255,255,255,.45)}
+    #white-label .h2{color:#fff}
+    #white-label .h2 em{color:var(--accent)}
+    #white-label p{color:rgba(255,255,255,.65)}
+    .wl-features{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+    .wl-feature{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.75rem 1.5rem}
+    .wl-feature-ico{font-size:1.6rem;margin-bottom:.75rem}
+    .wl-feature h4{font-family:var(--ff-disp);font-size:1rem;font-weight:800;color:#fff;margin-bottom:.4rem;letter-spacing:.01em}
+    .wl-feature p{font-size:.875rem;color:rgba(255,255,255,.55);margin:0}
+    .wl-note{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem 1.5rem;margin-top:2.5rem;color:rgba(255,255,255,.5);font-size:.875rem;text-align:center}
+    .btn-white{background:#fff;color:#1a1a1a;font-family:var(--ff-disp);font-weight:800;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;padding:1rem 2.5rem;border-radius:50px;border:none;cursor:pointer;transition:opacity .2s}
+    .btn-white:hover{opacity:.88}
+    @media(max-width:900px){.wl-features{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.wl-features{grid-template-columns:1fr}}
+
+    /* ── CONTACT ── */
+    #contact { position:relative; overflow:hidden; background:var(--bg); }
+    .cgrid { display:grid; grid-template-columns:1fr 1.2fr; gap:5rem; align-items:start; }
+    .cdesc { font-size:.95rem; color:var(--text); line-height:1.82; margin-bottom:2.5rem; }
+    .cdetails { display:flex; flex-direction:column; gap:1.25rem; margin-bottom:2.5rem; }
+    .citem { display:flex; align-items:center; gap:.9rem; }
+    .cico { width:38px; height:38px; border:1px solid var(--border); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--accent); flex-shrink:0; background:var(--bg); }
+    .ctxt { font-family:var(--ff-brand); font-size:.78rem; color:var(--text); }
+    .socials { display:flex; gap:.75rem; }
+    .soc { width:42px; height:42px; border:1px solid var(--border); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--muted); transition:.2s; background:var(--bg); }
+    .soc:hover { border-color:var(--accent); color:var(--accent); background:rgba(117,138,113,.06); }
+    .cal-embed-wrap { background:var(--bg); border-radius:12px; border:1px solid var(--border); overflow:hidden; box-shadow:var(--shadow); }
+    @media(max-width:900px) { .cgrid { grid-template-columns:1fr; gap:3rem; } }
+
+    /* ── PRICING ── */
+    #pricing{background:#ffffff}
+    .pricing-note{background:#fff;border:1px solid var(--border,#e8e6e1);border-radius:10px;padding:1.1rem 1.5rem;margin-bottom:2.5rem;font-size:.9rem;color:var(--mid,#6b6b6b);text-align:center}
+    .pgrid-pricing{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:3rem}
+    .ptier{background:#fff;padding:2rem 1.75rem 1.75rem;border-radius:12px;border:1px solid var(--border,#e8e6e1);display:flex;flex-direction:column;position:relative;overflow:hidden}
+    .ptier::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+    .ptier:hover::before{transform:scaleX(1)}
+    .ptier-featured{border:1.5px solid rgba(117,138,113,.5)}
+    .ptier-featured::before{transform:scaleX(1)}
+    .ptier-badge{position:absolute;top:1rem;right:1rem;background:var(--accent);color:#fff;font-family:var(--ff-disp);font-size:.65rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .65rem;border-radius:50px}
+    .ptier-name{font-family:var(--ff-disp);font-size:1rem;font-weight:800;color:var(--dark);letter-spacing:.02em;text-transform:uppercase;margin-bottom:.35rem}
+    .ptier-desc{font-size:.85rem;color:var(--mid,#6b6b6b);margin-bottom:1.25rem;line-height:1.5}
+    .ptier-price{font-family:var(--ff-disp);font-size:2rem;font-weight:900;color:var(--dark);margin-bottom:.25rem}
+    .ptier-price span{font-size:1rem;font-weight:600;color:var(--mid,#6b6b6b)}
+    .ptier-unit{font-size:.8rem;color:var(--mid,#6b6b6b);margin-bottom:1.25rem}
+    .ptier-divider{border:none;border-top:1px solid var(--border,#e8e6e1);margin:1rem 0}
+    .ptier ul{list-style:none;padding:0;margin:0 0 1.25rem;flex:1}
+    .ptier ul li{font-size:.85rem;color:var(--mid,#6b6b6b);padding:.3rem 0;display:flex;gap:.5rem;align-items:flex-start}
+    .ptier ul li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0}
+    .ptier-turnaround{font-size:.8rem;color:var(--mid,#6b6b6b);margin-bottom:1.25rem;display:flex;gap:.4rem;align-items:center}
+    .ptier-turnaround::before{content:'⏱'}
+    .ptier-cta{background:#1a1a1a;color:#fff;font-family:var(--ff-disp);font-size:.85rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:.9rem 1.25rem;border-radius:50px;border:none;cursor:pointer;text-align:center;transition:opacity .2s;margin-top:auto}
+    .ptier-cta:hover{opacity:.85}
+    .ptier-featured .ptier-cta{background:var(--accent)}
+    .addons-box{background:#fff;border:1px solid var(--border,#e8e6e1);border-radius:12px;padding:2rem 2rem 1.75rem}
+    .addons-box h3{font-family:var(--ff-disp);font-size:1.05rem;font-weight:800;color:var(--dark);margin-bottom:1.25rem}
+    .addons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem .75rem}
+    .addons-grid li{font-size:.85rem;color:var(--mid,#6b6b6b);list-style:none;padding:.2rem 0;display:flex;gap:.4rem;align-items:flex-start}
+    .addons-grid li::before{content:'+';color:var(--accent);font-weight:700;flex-shrink:0}
+    @media(max-width:1100px){.pgrid-pricing{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.pgrid-pricing{grid-template-columns:1fr}.addons-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div class="m-nav" id="MNAV">
+  <a href="/" onclick="mnav()">Home</a>
+  <a href="/web-development" onclick="mnav()">Web Development</a>
+  <a href="/content-creation" onclick="mnav()" style="color:var(--accent)">Content Creation</a>
+  <button class="nav-cta" style="font-size:1rem;padding:.85rem 2rem;border-radius:50px;"
+    data-cal-namespace="15min"
+    data-cal-link="bykikimedia/15min"
+    data-cal-config='{"layout":"month_view"}'>Book a Call</button>
+</div>
+
+<!-- NAV -->
+<nav id="NAV">
+  <a href="/">
+    <img src="../brand_assets/kiki logo.png" alt="By Kiki Media" class="nav-logo" width="116" height="42" decoding="async">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/web-development">Web Development</a></li>
+    <li><a href="/content-creation" class="nav-active">Content Creation</a></li>
+    <li>
+      <button class="nav-cta"
+        data-cal-namespace="15min"
+        data-cal-link="bykikimedia/15min"
+        data-cal-config='{"layout":"month_view"}'>
+        Book a Call
+      </button>
+    </li>
+  </ul>
+  <button class="ham" onclick="mnav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <div class="grid-bg" id="hero-grid">
+    <div class="grid-static"></div>
+    <div class="grid-reveal" id="hero-grid-reveal"></div>
+    <div class="grid-orb grid-orb-orange"></div>
+    <div class="grid-orb grid-orb-primary"></div>
+    <div class="grid-orb grid-orb-blue"></div>
+  </div>
+  <div id="particles"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-proof-badge" id="HBG">
+        <div class="hero-proof-avatars">
+          <div class="hero-proof-av">G</div>
+          <div class="hero-proof-av">S</div>
+          <div class="hero-proof-av">A</div>
+          <div class="hero-proof-av">D</div>
+          <div class="hero-proof-av">M</div>
+        </div>
+        <div class="hero-proof-text">
+          <span class="hero-proof-star">★</span>
+          Scroll-Stopping Content for Clinics
+          <span class="hero-proof-star">★</span>
+        </div>
+      </div>
+
+      <div class="hero-eyebrow" id="HE">Content Creation for Clinics</div>
+      <h1 class="hero-h1" id="HH">Content That Fills<br>Your Clinic's<br><em>Booking Calendar.</em></h1>
+      <p class="hero-sub" id="HS">Reels, AI avatar videos, UGC, and scroll-stopping content created exclusively for health, beauty, aesthetic, and wellness clinics. No generic content. Just results.</p>
+      <div class="hero-btns" id="HB">
+        <button
+          class="btn btn-fill"
+          data-cal-namespace="15min"
+          data-cal-link="bykikimedia/15min"
+          data-cal-config='{"layout":"month_view"}'>
+          Book a Free Strategy Call
+        </button>
+        <a href="#work" class="btn btn-ghost btn-non-hero">View Work <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-portrait-wrap">
+        <div class="hero-portrait">
+          <img src="../brand_assets/opt/IMG_1321.jpg" alt="Karin — Content Creation for Clinics Melbourne" width="1200" height="800" fetchpriority="high" decoding="async">
+        </div>
+        <div class="satisfied-badge">
+          <div class="badge-text">
+            <span class="badge-percent">50K+</span>
+            <span class="badge-label">Avg. Reel Views</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll" id="HSC">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section id="services" class="sec-full">
+  <div class="sec-inner">
+    <div class="svc-head">
+      <div class="lbl lbl-c rv">What I Create</div>
+      <h2 class="h2 rv" style="text-align:center">Content Services for <em>Clinics</em></h2>
+    </div>
+
+    <div class="sgrid rvs">
+
+      <div class="scard">
+        <div class="snum">01</div>
+        <h3 class="stitle">Clinic Reels &amp; Short-Form</h3>
+        <p class="sdesc">Scroll-stopping vertical content engineered for clinics. Treatment showcases, before &amp; afters, staff introductions, and educational content that attracts your ideal clients and books appointments.</p>
+        <div class="stags">
+          <span class="stag">Instagram</span><span class="stag">TikTok</span>
+          <span class="stag">Treatment Reels</span><span class="stag">B&amp;A Content</span>
+        </div>
+      </div>
+
+      <div class="scard">
+        <div class="snum">02</div>
+        <h3 class="stitle">AI Avatar Videos</h3>
+        <p class="sdesc">Hyper-realistic AI spokespeople for your clinic — no cameras, no studios, no scheduling. Create professional explainer videos, treatment promotions, and FAQs at scale, in any language.</p>
+        <div class="stags">
+          <span class="stag">HeyGen</span><span class="stag">AI Spokespeople</span>
+          <span class="stag">Multilingual</span><span class="stag">At Scale</span>
+        </div>
+      </div>
+
+      <div class="scard">
+        <div class="snum">03</div>
+        <h3 class="stitle">UGC Content Creation</h3>
+        <p class="sdesc">Authentic, brand-on UGC for your clinic — real reactions, real results. From treatment experiences to product reviews, content that feels genuine and converts far better than polished ads.</p>
+        <div class="stags">
+          <span class="stag">Authentic</span><span class="stag">Treatment Reviews</span>
+          <span class="stag">Paid Ads Ready</span><span class="stag">Unboxing</span>
+        </div>
+      </div>
+
+      <div class="scard">
+        <div class="snum">04</div>
+        <h3 class="stitle">Social Media Content</h3>
+        <p class="sdesc">Complete social content packages for clinics — consistent feed aesthetics, engaging captions, and a posting strategy built to grow your audience and convert followers into booked clients.</p>
+        <div class="stags">
+          <span class="stag">Content Strategy</span><span class="stag">Feed Design</span>
+          <span class="stag">Captions</span><span class="stag">Scheduling</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rv" style="text-align:center;margin-top:2.5rem;">
+      <button
+        class="btn btn-fill btn-non-hero"
+        data-cal-namespace="15min"
+        data-cal-link="bykikimedia/15min"
+        data-cal-config='{"layout":"month_view"}'>
+        Claim Your Free Content Strategy Session <span class="btn-arrow">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHITE LABEL ══════════ -->
+<section id="white-label" class="sec sec-full">
+  <div class="max-w">
+    <div class="rv" style="max-width:640px;margin-bottom:0">
+      <div class="lbl">For Agencies</div>
+      <h2 class="h2">We Power Agencies <em>Behind the Scenes.</em></h2>
+      <p style="font-size:1.05rem;margin-top:1rem;">Need clinic content delivered under your brand? We operate as your silent production team — fully white labelled, always on brief.</p>
+    </div>
+
+    <div class="wl-features rv">
+      <div class="wl-feature">
+        <div class="wl-feature-ico">🏷️</div>
+        <h4>100% White Label</h4>
+        <p>All content is delivered under your agency brand. No By Kiki Media branding — ever.</p>
+      </div>
+      <div class="wl-feature">
+        <div class="wl-feature-ico">🔒</div>
+        <h4>NDA &amp; Confidentiality</h4>
+        <p>We sign NDAs as standard. Your client relationships and processes stay completely protected.</p>
+      </div>
+      <div class="wl-feature">
+        <div class="wl-feature-ico">📦</div>
+        <h4>Direct or Managed Delivery</h4>
+        <p>We deliver direct to your clients or to your team — whatever fits your workflow best.</p>
+      </div>
+      <div class="wl-feature">
+        <div class="wl-feature-ico">📈</div>
+        <h4>Scalable Overflow</h4>
+        <p>Spike in demand? We scale with you. No hiring, no onboarding — just more capacity when you need it.</p>
+      </div>
+      <div class="wl-feature">
+        <div class="wl-feature-ico">🏥</div>
+        <h4>Clinic-Specialist Expertise</h4>
+        <p>We know the compliance, tone, and visual language that converts in health and wellness.</p>
+      </div>
+      <div class="wl-feature">
+        <div class="wl-feature-ico">⏱️</div>
+        <h4>Consistent Turnarounds</h4>
+        <p>Reliable delivery schedules your team can plan around — no chasing, no surprises.</p>
+      </div>
+    </div>
+
+    <div class="wl-note rv">
+      Pricing is based on volume and long-term partnership — get in touch to discuss.
+    </div>
+
+    <div class="rv" style="text-align:center;margin-top:2rem;">
+      <a href="mailto:bykikimedia@gmail.com" class="btn-white">Enquire About White Label</a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════ PRICING ══════════ -->
+<section id="pricing" class="sec sec-full">
+  <div class="max-w">
+    <div class="rv" style="text-align:center;max-width:620px;margin:0 auto 3rem">
+      <div class="lbl">Pricing</div>
+      <h2 class="h2">Transparent <em>Reel Pricing</em></h2>
+      <p>All pricing is based on ongoing monthly packages. We don't offer one-off content — we build long-term strategies for clinics.</p>
+    </div>
+
+    <div class="pricing-note rv">
+      Minimum commitment: 4 reels/month. Prices are per reel and reduce with volume. All packages include strategy, scripting, editing, and captions.
+    </div>
+
+    <div class="pgrid-pricing rv">
+
+      <!-- Tier 1 -->
+      <div class="ptier">
+        <div class="ptier-name">Simple Reels</div>
+        <div class="ptier-desc">Clean, on-brand talking-head or b-roll reels. Great for consistent posting.</div>
+        <div class="ptier-price">$100 <span>/ reel</span></div>
+        <div class="ptier-unit">from, billed monthly</div>
+        <hr class="ptier-divider">
+        <ul>
+          <li>Talking-head or b-roll format</li>
+          <li>1 revision round</li>
+          <li>Captions included</li>
+          <li>On-brand colour grading</li>
+          <li>Up to 30 seconds</li>
+        </ul>
+        <div class="ptier-turnaround">3–4 business days per reel</div>
+        <button class="ptier-cta"
+          data-cal-namespace="15min"
+          data-cal-link="bykikimedia/15min"
+          data-cal-config='{"layout":"month_view"}'>Get a Quote</button>
+      </div>
+
+      <!-- Tier 2 — Most Popular -->
+      <div class="ptier ptier-featured">
+        <div class="ptier-badge">Most Popular</div>
+        <div class="ptier-name">Standard Reels</div>
+        <div class="ptier-desc">Elevated production with hooks, text overlays, and trend-aware formats.</div>
+        <div class="ptier-price">$180 <span>/ reel</span></div>
+        <div class="ptier-unit">from, billed monthly</div>
+        <hr class="ptier-divider">
+        <ul>
+          <li>Hook-led storytelling format</li>
+          <li>2 revision rounds</li>
+          <li>Captions + text overlays</li>
+          <li>Trending audio sourcing</li>
+          <li>Up to 60 seconds</li>
+          <li>Monthly performance review</li>
+        </ul>
+        <div class="ptier-turnaround">2–3 business days per reel</div>
+        <button class="ptier-cta"
+          data-cal-namespace="15min"
+          data-cal-link="bykikimedia/15min"
+          data-cal-config='{"layout":"month_view"}'>Get a Quote</button>
+      </div>
+
+      <!-- Tier 3 — Best Value -->
+      <div class="ptier ptier-featured">
+        <div class="ptier-badge">Best Value</div>
+        <div class="ptier-name">Premium Reels</div>
+        <div class="ptier-desc">Full-service content production — scripted, styled, and optimised for conversions.</div>
+        <div class="ptier-price">$240 <span>/ reel</span></div>
+        <div class="ptier-unit">from, billed monthly</div>
+        <hr class="ptier-divider">
+        <ul>
+          <li>Full scripting &amp; creative direction</li>
+          <li>3 revision rounds</li>
+          <li>Advanced colour grade &amp; effects</li>
+          <li>Custom captions + motion graphics</li>
+          <li>Up to 90 seconds</li>
+          <li>Strategy call each month</li>
+          <li>Priority turnaround</li>
+        </ul>
+        <div class="ptier-turnaround">1–2 business days per reel</div>
+        <button class="ptier-cta"
+          data-cal-namespace="15min"
+          data-cal-link="bykikimedia/15min"
+          data-cal-config='{"layout":"month_view"}'>Get a Quote</button>
+      </div>
+
+      <!-- Tier 4 — AI Avatar -->
+      <div class="ptier">
+        <div class="ptier-name">AI Avatar Reels</div>
+        <div class="ptier-desc">Faceless, high-converting reels using AI avatars. Perfect for clinics without on-camera talent.</div>
+        <div class="ptier-price">$300 <span>/ reel</span></div>
+        <div class="ptier-unit">from, billed monthly</div>
+        <hr class="ptier-divider">
+        <ul>
+          <li>Custom AI avatar creation</li>
+          <li>Full script included</li>
+          <li>2 revision rounds</li>
+          <li>Captions + text overlays</li>
+          <li>No on-camera filming required</li>
+          <li>Up to 60 seconds</li>
+          <li>Brand voice alignment</li>
+        </ul>
+        <div class="ptier-turnaround">3–5 business days per reel</div>
+        <button class="ptier-cta"
+          data-cal-namespace="15min"
+          data-cal-link="bykikimedia/15min"
+          data-cal-config='{"layout":"month_view"}'>Get a Quote</button>
+      </div>
+
+    </div>
+
+    <!-- Add-ons -->
+    <div class="addons-box rv">
+      <h3>Available Add-Ons</h3>
+      <ul class="addons-grid">
+        <li>Extra revision round</li>
+        <li>Rush delivery (24hrs)</li>
+        <li>Additional duration (90s+)</li>
+        <li>Script writing only</li>
+        <li>UGC raw footage edit</li>
+        <li>Professional voiceover</li>
+        <li>Story-format cutdown</li>
+        <li>Subtitles in additional language</li>
+        <li>Custom thumbnail design</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════ WORK ══════════ -->
+<div class="work-grid-wrap" id="work-section-wrap">
+  <div class="grid-bg" id="work-grid">
+    <div class="grid-static"></div>
+    <div class="grid-reveal" id="work-grid-reveal"></div>
+  </div>
+  <section id="work" class="sec">
+    <div class="work-head">
+      <div>
+        <div class="lbl rv">Portfolio</div>
+        <h2 class="h2 rv">Selected <em>Content</em></h2>
+      </div>
+      <div class="filters rv" id="FTABS">
+        <button class="ftab on" data-f="all">All</button>
+        <button class="ftab" data-f="clinics">Clinics</button>
+        <button class="ftab" data-f="other">Other Niches</button>
+      </div>
+    </div>
+
+    <!-- Vertical video portfolio -->
+    <div class="pgrid-video rv" id="PGRID">
+
+      <!-- ── CLINICS: AI Avatar 1 ── -->
+      <div class="pi" data-c="clinics" data-type="local">
+        <div class="pi-in">
+          <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+            <source src="../brand_assets/march12-v1.mov" type="video/mp4">
+          </video>
+          <div class="ai-badge">AI Avatar</div>
+        </div>
+        <div class="ov">
+          <div class="ov-cat">AI Avatar · Clinic Content</div>
+          <div class="ov-title">AI Avatar Video</div>
+          <div class="ov-cta">Watch</div>
+        </div>
+      </div>
+
+      <!-- ── CLINICS: AI Avatar 2 ── -->
+      <div class="pi" data-c="clinics" data-type="local">
+        <div class="pi-in">
+          <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+            <source src="../brand_assets/Sydney1.MOV" type="video/mp4">
+          </video>
+          <div class="ai-badge">AI Avatar</div>
+        </div>
+        <div class="ov">
+          <div class="ov-cat">AI Avatar · Clinic Content</div>
+          <div class="ov-title">AI Avatar Video</div>
+          <div class="ov-cta">Watch</div>
+        </div>
+      </div>
+
+      <!-- ── CLINICS: AI Avatar (Billie) ── -->
+      <div class="pi" data-c="clinics" data-type="ig" data-url="https://www.instagram.com/reel/DV5kpY9jx7g/">
+        <div class="pi-in">
+          <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+            <source src="../brand_assets/billie.MOV" type="video/mp4">
+          </video>
+          <div class="ai-badge">AI Avatar</div>
+        </div>
+        <div class="ov">
+          <div class="ov-cat">AI Avatar · Clinic Content</div>
+          <div class="ov-title">AI Avatar Video</div>
+          <div class="ov-cta">View on Instagram →</div>
+        </div>
+      </div>
+
+      <!-- ── CLINICS: AI Avatar (Jacob) ── -->
+      <div class="pi" data-c="clinics" data-type="ig" data-url="https://www.instagram.com/reel/DV2mT1xj3Kl/">
+        <div class="pi-in">
+          <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+            <source src="../brand_assets/jacob.MOV" type="video/mp4">
+          </video>
+          <div class="ai-badge">AI Avatar</div>
+        </div>
+        <div class="ov">
+          <div class="ov-cat">AI Avatar · Clinic Content</div>
+          <div class="ov-title">AI Avatar Video</div>
+          <div class="ov-cta">View on Instagram →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Shelanous — Giveaway ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/p/DU0IbdHEYxd/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/giveaway.jpg" alt="Shelanous — Giveaway Reel" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="ov">
+          <div class="ov-cat">Reel · Entertainment</div>
+          <div class="ov-title">Shelanous</div>
+          <div class="ov-cta">View on Instagram →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Shelanous — Episode ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/p/DVnTl1oEd--/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/episode2.jpg" alt="Shelanous — Episode Content" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="ov">
+          <div class="ov-cat">Content Creation · Entertainment</div>
+          <div class="ov-title">Shelanous</div>
+          <div class="ov-cta">View on Instagram →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Shelly — Valentines ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/p/DUedQEaEx2Y/">
+        <div class="pi-in">
+          <img src="../brand_assets/Valentines.png" alt="Shelly — Valentines Reel" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="ov">
+          <div class="ov-cat">Reel · Lifestyle</div>
+          <div class="ov-title">Shelly</div>
+          <div class="ov-cta">View on Instagram →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Arthaus ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/p/DRhpGGAjBVN/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/arthaus.jpg" alt="Arthaus — Content Creation" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="ov">
+          <div class="ov-cat">Reel · Arts &amp; Culture</div>
+          <div class="ov-title">Arthaus</div>
+          <div class="ov-cta">View on Instagram →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Homeshowoff ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/reel/DEApqkgJGf1/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/2homeshowoff.jpg" alt="Homeshowoff — Reel" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="ov">
+          <div class="ov-cat">Reel · Real Estate</div>
+          <div class="ov-title">Homeshowoff</div>
+          <div class="ov-cta">View on Instagram →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Shelanous — Music ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/p/DUZGeeAD7x_/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/music.jpg" alt="Shelanous — Music Content" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="ov">
+          <div class="ov-cat">Content Creation · Entertainment</div>
+          <div class="ov-title">Shelanous</div>
+          <div class="ov-cta">View on Instagram →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Shelly ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/p/DVp0Q38EcbN/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/weserved.jpg" alt="Shelly — Reel" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="ov">
+          <div class="ov-cat">Reel · Lifestyle</div>
+          <div class="ov-title">Shelly</div>
+          <div class="ov-cta">View on Instagram →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Victory Media ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/reel/Ch73Ji0Mpx9/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/victory.jpg" alt="Victory Media — Reel" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="ov">
+          <div class="ov-cat">Reel · Media</div>
+          <div class="ov-title">Victory Media</div>
+          <div class="ov-cta">View on Instagram →</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════ UGC SECTION ══════════ -->
+<section id="ugc" class="sec-full" aria-label="UGC Content Creation for Clinics Melbourne">
+
+  <video class="ugc-bg-video" autoplay muted loop playsinline preload="auto">
+    <source src="../brand_assets/skydiving.mp4" type="video/mp4">
+  </video>
+  <div class="ugc-overlay" aria-hidden="true"></div>
+
+  <div class="sec-inner">
+    <div class="ugc-text rv">
+      <p class="ugc-label">UGC for Clinics</p>
+      <h2 class="ugc-h2">UGC Content that <span>Fills Appointments</span></h2>
+      <p class="ugc-desc">
+        Authentic UGC content built for clinics — treatment experiences, skincare reviews, and
+        before &amp; after storytelling that converts. Real reactions, clinic-branded, and
+        ready to run as paid ads or organic content.
+      </p>
+      <ul class="ugc-list">
+        <li>✦ Treatment Experience Reels</li>
+        <li>✦ Skincare &amp; Product Reviews</li>
+        <li>✦ Before &amp; After Storytelling</li>
+        <li>✦ Clinic Lifestyle Content</li>
+      </ul>
+      <div class="ugc-price">
+        <span class="ugc-price-from">from</span>
+        <span class="ugc-price-amount">$200</span>
+        <span class="ugc-price-unit">per video</span>
+      </div>
+      <button
+        class="ugc-panel-cta"
+        data-cal-namespace="15min"
+        data-cal-link="bykikimedia/15min"
+        data-cal-config='{"layout":"month_view"}'>
+        Book a UGC Session <span class="btn-arr">→</span>
+      </button>
+    </div>
+
+    <a class="ugc-iphone rv" href="https://www.instagram.com/karinsbts/" target="_blank" rel="noopener" aria-label="View UGC on Instagram">
+      <div class="iphone-frame">
+        <div class="iphone-screen">
+          <img src="../brand_assets/laptopme.png" alt="UGC content by Karin" loading="lazy">
+          <div class="iphone-ig-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @karinsbts
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════ TESTIMONIALS ══════════ -->
+<section id="testimonials">
+  <div class="client-logos rv">
+    <p class="client-logos-label">Trusted by Clinics &amp; Brands</p>
+    <div class="logos-row">
+      <div class="logo-item"><img src="../brand_assets/Shelly.png" alt="Shelly"></div>
+      <div class="logo-item"><img src="../brand_assets/Shelanous White .png" alt="Shelanous"></div>
+      <div class="logo-item"><img src="../brand_assets/Glow Saunas.png" alt="Glow Saunas"></div>
+      <div class="logo-item"><img src="../brand_assets/arthaus.png" alt="Arthaus"></div>
+      <div class="logo-item"><img src="../brand_assets/Homeshowoff logo.png" alt="Homeshowoff"></div>
+    </div>
+  </div>
+
+  <div class="stagger-wrap" id="STAGGER"></div>
+
+  <div class="stagger-nav">
+    <button class="stagger-btn" id="SPREV" aria-label="Previous testimonial">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="stagger-btn" id="SNEXT" aria-label="Next testimonial">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <div style="text-align:center;margin-top:40px;padding:0 20px;">
+    <p style="font-family:'Anonymous Pro',monospace;font-size:1rem;margin-bottom:16px;color:rgba(255,255,255,.6);">Ready to get results like these for your clinic?</p>
+    <button
+      class="btn btn-white btn-non-hero"
+      data-cal-namespace="15min"
+      data-cal-link="bykikimedia/15min"
+      data-cal-config='{"layout":"month_view"}'>
+      Claim Your Free Strategy Session <span class="btn-arrow">→</span>
+    </button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════ CTA ══════════ -->
+<section id="cta-section" class="sec-full">
+  <div class="sec-inner">
+    <div class="cta-inner">
+      <div class="lbl lbl-c rv">Let's Create Together</div>
+      <h2 class="h2 rv" style="text-align:center">Ready to Fill Your<br>Clinic's <em>Booking Calendar?</em></h2>
+      <p class="rv">Scroll-stopping content built for clinics. Let's chat about your goals and put together a content strategy that actually moves the needle.</p>
+      <div class="cta-btns rv">
+        <button
+          class="btn btn-fill btn-non-hero"
+          data-cal-namespace="15min"
+          data-cal-link="bykikimedia/15min"
+          data-cal-config='{"layout":"month_view"}'>
+          Book a Free Call <span class="btn-arrow">→</span>
+        </button>
+        <a href="mailto:bykikimedia@gmail.com" class="btn btn-ghost btn-non-hero">Email Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="../brand_assets/kiki logo.png" alt="By Kiki Media" class="flogo" width="83" height="30" loading="lazy" decoding="async">
+  <span class="fcopy">© 2026 By Kiki Media. All rights reserved.</span>
+  <ul class="flinks">
+    <li><a href="/">Home</a></li>
+    <li><a href="/web-development">Web Dev</a></li>
+    <li><a href="/content-creation">Content</a></li>
+  </ul>
+</footer>
+
+<!-- Cal.com -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "15min", {origin:"https://app.cal.com"});
+  Cal.ns["15min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#345527"},"dark":{"cal-brand":"#fafafa"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+
+<script>
+/* ── NAV SCROLL ── */
+const NAV = document.getElementById('NAV');
+window.addEventListener('scroll', () => NAV.classList.toggle('sc', scrollY > 80));
+
+/* ── MOBILE NAV ── */
+const MNAV = document.getElementById('MNAV');
+function mnav() { MNAV.classList.toggle('open'); }
+
+/* ── HERO INTRO ── */
+['HBG','HE','HH','HS','HB','HSC'].forEach((id, i) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.opacity = '0'; el.style.transform = 'translateY(22px)';
+  setTimeout(() => {
+    el.style.transition = 'opacity .8s ease, transform .8s cubic-bezier(.25,.46,.45,.94)';
+    el.style.opacity = '1'; el.style.transform = 'translateY(0)';
+  }, 200 + i * 220);
+});
+
+/* ── PARTICLES ── */
+const PC = document.getElementById('particles');
+const pastelColors = ['#FFB3C6','#D4B8E0','#FFDAB9','#B5EAD7','#AED9E0','#FFF5BA'];
+for (let i = 0; i < 22; i++) {
+  const p = document.createElement('div'); p.className = 'pt';
+  const s = Math.random() * 8 + 3;
+  const col = pastelColors[Math.floor(Math.random() * pastelColors.length)];
+  p.style.cssText = `left:${Math.random()*100}%;bottom:${Math.random()*20}%;width:${s}px;height:${s}px;background:${col};animation-duration:${15+Math.random()*18}s;animation-delay:${Math.random()*20}s;opacity:${0.35+Math.random()*0.35};`;
+  PC.appendChild(p);
+}
+
+/* ── GRID MOUSE REVEAL ── */
+function initGridReveal(sectionEl, revealEl) {
+  if (!sectionEl || !revealEl) return;
+  sectionEl.addEventListener('mousemove', (e) => {
+    const rect = sectionEl.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const grad = `radial-gradient(300px circle at ${x}px ${y}px, black, transparent)`;
+    revealEl.style.webkitMaskImage = grad;
+    revealEl.style.maskImage = grad;
+  });
+  sectionEl.addEventListener('mouseleave', () => {
+    const grad = 'radial-gradient(300px circle at -500px -500px, black, transparent)';
+    revealEl.style.webkitMaskImage = grad;
+    revealEl.style.maskImage = grad;
+  });
+}
+initGridReveal(document.getElementById('hero'), document.getElementById('hero-grid-reveal'));
+initGridReveal(document.getElementById('work-section-wrap'), document.getElementById('work-grid-reveal'));
+
+/* ── SCROLL REVEAL ── */
+const ro = new IntersectionObserver((ents) => {
+  ents.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rv,.rvs').forEach(el => ro.observe(el));
+
+/* ── PORTFOLIO FILTER ── */
+const FTABS = document.querySelectorAll('.ftab');
+const PIS = document.querySelectorAll('.pi');
+FTABS.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const f = tab.dataset.f;
+    FTABS.forEach(t => t.classList.remove('on')); tab.classList.add('on');
+    PIS.forEach(pi => {
+      const cats = (pi.dataset.c || '').split(' ');
+      const match = f === 'all' || cats.includes(f);
+      if (match) {
+        pi.classList.remove('gone');
+        pi.style.opacity = '0'; pi.style.transform = 'scale(.97)';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          pi.style.transition = 'opacity .4s ease,transform .4s ease';
+          pi.style.opacity = '1'; pi.style.transform = 'scale(1)';
+        }));
+      } else {
+        pi.style.transition = 'opacity .3s ease';
+        pi.style.opacity = '0';
+        setTimeout(() => pi.classList.add('gone'), 300);
+      }
+    });
+  });
+});
+
+/* ── PORTFOLIO CLICK ── */
+PIS.forEach(pi => {
+  pi.addEventListener('click', () => {
+    const type = pi.dataset.type || '';
+    const url = pi.dataset.url || '';
+    if (type === 'ig' && url) {
+      window.open(url, '_blank', 'noopener');
+    }
+  });
+});
+
+/* ── STAT COUNT-UP ── */
+function countUp(el, target, suffix, duration) {
+  const start = performance.now();
+  function frame(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const val = Math.round(ease * parseFloat(target));
+    el.textContent = val + suffix;
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+const statObs = new IntersectionObserver((ents) => {
+  ents.forEach(e => {
+    if (!e.isIntersecting) return;
+    const n = e.target;
+    const txt = n.dataset.target || n.textContent;
+    const num = parseFloat(txt.replace(/[^0-9.]/g, ''));
+    const suffix = txt.replace(/[0-9.]/g, '');
+    if (!isNaN(num)) countUp(n, num, suffix, 1600);
+    statObs.unobserve(n);
+  });
+}, { threshold: .5 });
+document.querySelectorAll('.stat-n').forEach(n => {
+  n.dataset.target = n.textContent;
+  statObs.observe(n);
+});
+
+/* ── SERVICE CARD TILT ── */
+document.querySelectorAll('.scard').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    card.style.transform = `translateY(-4px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+
+/* ── STAGGER TESTIMONIALS ── */
+(function () {
+  const data = [
+    { text: '"The AI avatar videos look completely real. Our clinic\'s audience engagement tripled and direct bookings from Instagram went through the roof. Best investment we\'ve made for our marketing."', name: 'Dr. Diego R.', role: 'Owner, Aesthetic Clinic Sydney', init: 'D' },
+    { text: '"Our Instagram reels went from 200 views to 50K+ consistently. Karin understood exactly what content works for a beauty clinic — showcasing treatments without being salesy. Perfect tone."', name: 'Amy L.', role: 'Owner, Glow Beauty Clinic Melbourne', init: 'A' },
+    { text: '"The UGC content Karin created for our med spa blended perfectly with our feed — authentic, high quality, and completely on-brand. Our paid ads using her content cut cost-per-click by 38%."', name: 'Lena V.', role: 'Marketing Manager, Bloom Med Spa', init: 'L' },
+    { text: '"We went from one video a month to publishing daily — quality indistinguishable from real presenters. AI avatars were a total game-changer for our clinic\'s content output."', name: 'Sarah Mitchell', role: 'Head of Marketing, Wellness Group', init: 'S' },
+    { text: '"Our treatment showcase reels have become our number one source of new client enquiries. Karin nailed the aesthetic and the hook. Can\'t recommend highly enough."', name: 'Priya K.', role: 'Director, Skin & Laser Clinic', init: 'P' },
+    { text: '"Working with Kiki on our clinic\'s social content was seamless. She gets the wellness industry. Our followers doubled in 3 months and the content quality is genuinely outstanding."', name: 'Marcus Chen', role: 'Founder, Mivara Aesthetics', init: 'M' },
+    { text: '"The content strategy Karin put together for our health clinic drove real results — more enquiries, more bookings, and a feed we\'re actually proud to show potential clients."', name: 'Rachel B.', role: 'Practice Manager, Integrative Health Clinic', init: 'R' },
+  ];
+  let list = [...data];
+  const wrap = document.getElementById('STAGGER');
+  if (!wrap) return;
+  function sz() { return window.innerWidth >= 640 ? 320 : 260; }
+  function render() {
+    const s = sz(), step = s / 1.5, half = Math.floor(list.length / 2);
+    wrap.innerHTML = '';
+    list.forEach(function (t, idx) {
+      const pos = idx - half, isC = (pos === 0), isOdd = (pos % 2 !== 0);
+      const ty = isC ? -65 : (isOdd ? 15 : -15);
+      const rot = isC ? 0 : (isOdd ? 2.5 : -2.5);
+      const card = document.createElement('div');
+      card.className = 'scard-t' + (isC ? ' scard-center' : '');
+      card.style.cssText = 'width:' + s + 'px;height:' + s + 'px;transform:translate(-50%,-50%) translateX(' + step * pos + 'px) translateY(' + ty + 'px) rotate(' + rot + 'deg);z-index:' + (isC ? 10 : Math.max(1, 8 - Math.abs(pos))) + ';';
+      if (pos !== 0) card.addEventListener('click', function () { move(pos); });
+      const corner = document.createElement('span'); corner.className = 'scard-corner'; card.appendChild(corner);
+      const av = document.createElement('div'); av.className = 'scard-av'; av.textContent = t.init; card.appendChild(av);
+      const stars = document.createElement('div'); stars.className = 'scard-stars'; stars.textContent = '★★★★★'; card.appendChild(stars);
+      const q = document.createElement('p'); q.className = 'scard-quote'; q.textContent = t.text; card.appendChild(q);
+      const by = document.createElement('p'); by.className = 'scard-by'; by.textContent = '— ' + t.name + ', ' + t.role; card.appendChild(by);
+      wrap.appendChild(card);
+    });
+  }
+  function move(steps) {
+    const nl = [...list];
+    if (steps > 0) { for (let i = 0; i < steps; i++) nl.push(nl.shift()); }
+    else { for (let i = 0; i < -steps; i++) nl.unshift(nl.pop()); }
+    list = nl; render();
+  }
+  const prev = document.getElementById('SPREV'), next = document.getElementById('SNEXT');
+  if (prev) prev.addEventListener('click', function () { move(-1); });
+  if (next) next.addEventListener('click', function () { move(1); });
+  render();
+  window.addEventListener('resize', render);
+})();
+</script>
+</body>
+</html>

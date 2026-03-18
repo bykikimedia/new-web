@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinic Web Development | Ecommerce, Landing Pages & Website Optimisation — By Kiki Media</title>
+
+  <link rel="icon" type="image/png" href="../brand_assets/favicon.png">
+  <link rel="apple-touch-icon" href="../brand_assets/favicon.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="High-converting websites, landing pages, and ecommerce stores built exclusively for health, beauty, aesthetic, and wellness clinics. Based in Melbourne, working worldwide.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bykikimedia.com/web-development">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #ffffff;
+      --bg2:       #f8f8f6;
+      --bg3:       #f0eeeb;
+      --accent:    #758a71;
+      --accent-l:  #8fa48b;
+      --dark:      #1a1a1a;
+      --text:      #444444;
+      --muted:     #888888;
+      --border:    rgba(0,0,0,0.08);
+      --shadow:    0 2px 20px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 40px rgba(0,0,0,0.09);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+      --ff-disp:   'Montserrat', sans-serif;
+      --ff-brand:  'Anonymous Pro', monospace;
+      --ff-body:   'Anonymous Pro', monospace;
+      --ease:      cubic-bezier(.25,.46,.45,.94);
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; cursor: pointer; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; }
+
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
+    p, li { font-family: 'Anonymous Pro', monospace; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index:1000;
+      display: flex; align-items:center; justify-content:space-between;
+      padding: 1.5rem 5rem;
+      transition: padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+    }
+    nav.sc {
+      padding: 1rem 5rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-logo { height: 42px; opacity:.9; transition: opacity .2s; }
+    .nav-logo:hover { opacity:1; }
+    .nav-links { display:flex; align-items:center; gap:2.5rem; list-style:none; }
+    .nav-links a {
+      font-family: var(--ff-brand); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
+      color: var(--dark); transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .nav-active { color: var(--accent); }
+    .nav-cta {
+      background: #1a1a1a !important; color: #fff !important;
+      padding: .5rem 1.3rem !important; font-size:.68rem !important;
+      border-radius: 50px; transition: background .2s !important;
+      font-family: var(--ff-brand) !important; letter-spacing:.12em !important;
+      text-transform: uppercase !important; border: none;
+    }
+    .nav-cta:hover { background: #333 !important; }
+    .ham { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; }
+    .ham span { display:block; width:22px; height:1.5px; background:var(--dark); transition:.25s; }
+
+    .m-nav {
+      position:fixed; inset:0; background:var(--bg); z-index:999;
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2.5rem;
+      transform: translateX(100%); transition: transform .4s var(--ease);
+    }
+    .m-nav.open { transform: translateX(0); }
+    .m-nav a { font-family:var(--ff-disp); font-size:2rem; color:var(--dark); transition:color .2s; }
+    .m-nav a:hover { color:var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; min-height: 90vh;
+      display: flex; align-items: center;
+      overflow: hidden; background: #ffffff;
+    }
+    .grid-bg { position:absolute; inset:0; z-index:0; background:#ffffff; }
+    .grid-static {
+      position:absolute; inset:-40px; opacity:0.05;
+      background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+      background-size:40px 40px; animation: gridScroll 4s linear infinite;
+    }
+    .grid-reveal {
+      position:absolute; inset:-40px; opacity:0.4;
+      background-image: linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+      background-size:40px 40px; animation: gridScroll 4s linear infinite;
+      -webkit-mask-image: radial-gradient(300px circle at -500px -500px, black, transparent);
+      mask-image: radial-gradient(300px circle at -500px -500px, black, transparent);
+    }
+    @keyframes gridScroll {
+      0%   { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+    .grid-orb { position:absolute; border-radius:50%; pointer-events:none; z-index:1; }
+    .grid-orb-orange { right:-20%; top:-20%; width:40%; aspect-ratio:1/1; background:rgba(249,115,22,.28); filter:blur(120px); }
+    .grid-orb-primary { right:10%; top:-10%; width:20%; aspect-ratio:1/1; background:rgba(117,138,113,.28); filter:blur(100px); }
+    .grid-orb-blue { left:-10%; bottom:-20%; width:40%; aspect-ratio:1/1; background:rgba(59,130,246,.28); filter:blur(120px); }
+    #particles { position:absolute; inset:0; z-index:2; pointer-events:none; }
+    .pt { position:absolute; border-radius:50%; animation: pfloat linear infinite; }
+    @keyframes pfloat {
+      0%   { opacity:0; transform:translateY(0) scale(1); }
+      10%  { opacity:.45; }
+      90%  { opacity:.15; }
+      100% { opacity:0; transform:translateY(-100vh) scale(0); }
+    }
+
+    .hero-content {
+      position:relative; z-index:10; width:100%; max-width:1400px; margin:0 auto;
+      padding:9rem 5rem 6rem;
+      display:grid; grid-template-columns:38% 62%; gap:4rem; align-items:center;
+    }
+    .hero-left { display:flex; flex-direction:column; align-items:flex-start; }
+    .hero-eyebrow {
+      font-family:var(--ff-brand); font-size:.68rem; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--accent); margin-bottom:1.5rem;
+      display:flex; align-items:center; gap:1rem;
+    }
+    .hero-eyebrow::after { content:''; width:36px; height:1px; background:var(--accent); opacity:.5; }
+    .hero-h1 {
+      font-family:'Montserrat', sans-serif; font-size:clamp(2rem,4.2vw,3.6rem);
+      font-weight:900; line-height:1.1; color:var(--dark); margin-bottom:1.5rem; letter-spacing:-0.02em;
+    }
+    .hero-h1 em { font-style:normal; color:var(--accent); }
+    .hero-sub {
+      font-family:var(--ff-brand); font-size:clamp(.84rem,1.8vw,1rem);
+      color:#1a1a1a; max-width:480px; margin:0 0 2.8rem; line-height:1.85; letter-spacing:.02em;
+    }
+    .hero-btns { display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+
+    /* proof badge */
+    .hero-proof-badge {
+      display:inline-flex; align-items:center; gap:.75rem;
+      background:#fff; border-radius:50px; padding:.45rem 1.2rem .45rem .45rem;
+      box-shadow:0 2px 16px rgba(0,0,0,.09); border:1px solid rgba(0,0,0,.07);
+      margin-bottom:2rem;
+    }
+    .hero-proof-avatars { display:flex; }
+    .hero-proof-av {
+      width:30px; height:30px; border-radius:50%; background:var(--accent); border:2px solid #fff;
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--ff-brand); font-size:.5rem; color:#fff; font-weight:700;
+      margin-left:-8px; flex-shrink:0;
+    }
+    .hero-proof-av:first-child { margin-left:0; }
+    .hero-proof-av:nth-child(2) { background:#8fa48b; }
+    .hero-proof-av:nth-child(3) { background:#a4b8a0; }
+    .hero-proof-av:nth-child(4) { background:#b8c9b5; }
+    .hero-proof-av:nth-child(5) { background:#758a71; }
+    .hero-proof-text {
+      font-family:var(--ff-brand); font-size:.68rem; letter-spacing:.04em; color:var(--dark);
+      display:flex; align-items:center; gap:.35rem; white-space:nowrap;
+    }
+    .hero-proof-star { color:#f59e0b; font-size:.72rem; }
+
+    /* Satisfied badge */
+    .satisfied-badge {
+      position:absolute; bottom:0; left:-20px;
+      background:white; border-radius:16px; padding:12px 18px;
+      box-shadow:0 8px 32px rgba(0,0,0,.12);
+      display:flex; align-items:center; z-index:10; pointer-events:none;
+    }
+    .badge-text { display:flex; align-items:center; gap:.4rem; white-space:nowrap; }
+    .badge-percent { font-family:'Montserrat', sans-serif; font-weight:800; font-size:1.2rem; color:#1a1a1a; line-height:1; }
+    .badge-label { font-family:'Anonymous Pro', monospace; font-size:.75rem; color:#666; }
+
+    /* hero portrait */
+    .hero-right { display:flex; align-items:center; justify-content:center; position:relative; overflow:visible !important; z-index:1; }
+    .hero-portrait-wrap {
+      position:relative; width:100%; max-width:640px;
+      padding:1.5rem 1rem 3.5rem 2.5rem; overflow:visible !important; z-index:2;
+    }
+    .hero-portrait {
+      width:100%; border-radius:20px; overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.12);
+      transform:rotate(-2deg); transition:transform .5s var(--ease);
+      position:relative; z-index:1;
+    }
+    .hero-portrait:hover { transform:rotate(0deg); }
+    .hero-portrait img { width:100%; height:auto; object-fit:contain; object-position:center top; display:block; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      font-family:var(--ff-brand); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+      padding:.9rem 2.4rem; transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+      display:inline-flex; align-items:center; justify-content:center; position:relative; overflow:hidden; border-radius:50px;
+      cursor:pointer; line-height:1; text-decoration:none;
+    }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-fill { background:#1a1a1a; color:#fff; border:1.5px solid #1a1a1a; }
+    .btn-fill:hover { background:#333; box-shadow:0 10px 28px rgba(0,0,0,.22); }
+    .btn-ghost { background:var(--accent); color:#fff; border:1.5px solid var(--accent); }
+    .btn-ghost:hover { background:#637a5f; box-shadow:0 10px 28px rgba(117,138,113,.35); }
+    .btn-white { background:#ffffff; color:#1a1a1a; border:1.5px solid #ffffff; }
+    .btn-white:hover { background:#f0f0f0; box-shadow:0 10px 28px rgba(255,255,255,.15); }
+    .btn-non-hero { display:inline-flex; align-items:center; gap:8px; }
+    @keyframes arrowBounce {
+      0%,100% { transform:translateX(0); }
+      50%      { transform:translateX(5px); }
+    }
+    .btn-arrow { display:inline-block; animation: arrowBounce 1.2s ease-in-out infinite; font-style:normal; }
+
+    /* ── HERO SCROLL ── */
+    .hero-scroll {
+      position:absolute; bottom:2.8rem; left:0; right:0;
+      z-index:11; display:flex; flex-direction:column; align-items:center; gap:.5rem;
+    }
+    .hero-scroll span { font-family:var(--ff-brand); font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--dark); }
+    .scroll-bar { width:1px; height:48px; background:linear-gradient(to bottom,var(--accent),transparent); animation:sbar 1.6s ease-in-out infinite; }
+    @keyframes sbar { 0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top} 50%{opacity:1;transform:scaleY(1);transform-origin:top} }
+
+    /* ── SECTIONS ── */
+    .sec { padding:8rem 5rem; max-width:1400px; margin:0 auto; }
+    .sec-full { padding:8rem 5rem; }
+    .sec-inner { max-width:1400px; margin:0 auto; }
+    .lbl {
+      font-family:var(--ff-brand); font-size:.64rem; letter-spacing:.3em; text-transform:uppercase;
+      color:var(--accent); margin-bottom:.9rem; display:flex; align-items:center; gap:1rem;
+    }
+    .lbl::after { content:''; width:48px; height:1px; background:var(--accent); opacity:.5; }
+    .lbl-c { justify-content:center; }
+    .lbl-c::before { content:''; width:48px; height:1px; background:var(--accent); opacity:.5; }
+    .h2 {
+      font-family:var(--ff-disp); font-size:clamp(2.4rem,5vw,4rem);
+      font-weight:800; line-height:1.08; color:var(--dark); margin-bottom:1.25rem;
+    }
+    .h2 em { font-style:normal; color:var(--accent); }
+    .divider { height:1px; background:var(--border); }
+    .section-divider {
+      width:90%; max-width:1200px; margin:0 auto; height:1px;
+      background:linear-gradient(to right, transparent 0%, #e0e0e0 20%, #e0e0e0 80%, transparent 100%);
+    }
+
+    /* ── SERVICES ── */
+    #services { background:#ffffff; }
+    .svc-head { text-align:center; margin-bottom:2rem; }
+    .sgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; perspective:1200px; align-items:stretch; }
+    .scard {
+      background:var(--bg); padding:3rem; position:relative; overflow:hidden;
+      border-radius:12px; border:1px solid var(--border);
+      box-shadow: var(--shadow); transition: box-shadow .35s, transform .35s;
+      display:flex; flex-direction:column; align-items:flex-start;
+    }
+    .scard:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .scard::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:var(--accent); border-radius:12px 12px 0 0;
+      transform:scaleX(0); transform-origin:left; transition:transform .4s var(--ease);
+    }
+    .scard:hover::before { transform:scaleX(1); }
+    .snum { font-family:var(--ff-disp); font-size:4.5rem; font-weight:700; color:rgba(117,138,113,.07); line-height:1; position:absolute; top:1.5rem; right:2rem; }
+    .sico { width:46px; height:46px; color:var(--accent); margin-bottom:1.5rem; }
+    .stitle { font-family:var(--ff-disp); font-size:1.45rem; font-weight:600; color:var(--dark); margin-bottom:.9rem; line-height:1.3; min-height:3.8rem; display:flex; align-items:flex-start; }
+    .sdesc { font-size:.9rem; color:var(--text); line-height:1.78; margin-bottom:1.25rem; }
+    .stags { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .stag { font-family:var(--ff-brand); font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); border:1px solid rgba(117,138,113,.3); padding:.22rem .65rem; border-radius:50px; background:rgba(117,138,113,.05); }
+
+    /* ── WORK / PORTFOLIO ── */
+    #work { padding:60px 40px; background:#1a1a1a; }
+    .work-grid-wrap { position:relative; overflow:hidden; background:#1a1a1a; }
+    .work-grid-wrap .grid-bg { z-index:0; background:#1a1a1a; }
+    .work-grid-wrap .grid-static,
+    .work-grid-wrap .grid-reveal,
+    .work-grid-wrap .grid-orb { display:none; }
+    .work-grid-wrap .sec { position:relative; z-index:2; }
+
+    .work-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px; flex-wrap:wrap; gap:1rem; }
+    #work .h2 { color:#ffffff; }
+    #work .h2 em { color:var(--accent); }
+    #work .lbl { color:rgba(255,255,255,0.4); }
+    #work .lbl::after { background:rgba(255,255,255,0.2); }
+
+    .filters { display:flex; gap:8px; flex-wrap:wrap; }
+    .ftab {
+      font-family:var(--ff-brand); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;
+      padding:6px 18px; background:transparent; border:1px solid rgba(255,255,255,0.2); border-radius:20px; color:rgba(255,255,255,0.6);
+      transition: background .2s, color .2s, border-color .2s; cursor:pointer;
+    }
+    .ftab:hover { background:#ffffff; color:#111111; border-color:#ffffff; }
+    .ftab.on { background:#ffffff; color:#111111; border-color:#ffffff; }
+
+    /* ── LARGE LANDSCAPE PORTFOLIO GRID ── */
+    .pgrid-landscape {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .pgrid-landscape .pi {
+      position: relative; overflow: hidden; border-radius: 16px;
+      cursor: pointer; transition: opacity .35s; isolation: isolate;
+      background: #111;
+    }
+    .pgrid-landscape .pi.gone { display:none; }
+    .pgrid-landscape .pi-in {
+      position: relative; overflow: hidden; border-radius: 16px;
+      aspect-ratio: 16/9;
+    }
+    .pgrid-landscape .pi-in img,
+    .pgrid-landscape .pi-in video {
+      width: 100%; height: 100%; display: block; object-fit: cover;
+      transition: transform .6s var(--ease);
+    }
+    .pgrid-landscape .pi:hover .pi-in img,
+    .pgrid-landscape .pi:hover .pi-in video {
+      transform: scale(1.03);
+    }
+    .pgrid-landscape .pi-ov {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 2.5rem 2rem;
+      background: linear-gradient(to top, rgba(0,0,0,.88) 0%, rgba(0,0,0,.5) 55%, transparent 100%);
+      border-radius: 0 0 16px 16px;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      transition: background .3s;
+    }
+    .pgrid-landscape .pi-ov-left { display: flex; flex-direction: column; gap: .4rem; }
+    .pgrid-landscape .ov-cat {
+      font-family: var(--ff-brand); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+    }
+    .pgrid-landscape .ov-title {
+      font-family: var(--ff-disp); font-size: clamp(1.1rem,2.5vw,1.6rem);
+      font-weight: 800; color: #fff; line-height: 1.2;
+    }
+    .pgrid-landscape .ov-cta {
+      font-family: var(--ff-brand); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+      display: inline-flex; align-items: center; gap: .4rem;
+      border: 1px solid rgba(255,255,255,.35); padding: .55rem 1.25rem; border-radius: 50px;
+      transition: background .2s, border-color .2s; white-space: nowrap;
+    }
+    .pgrid-landscape .pi:hover .ov-cta { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.6); }
+
+    /* two-column layout for secondary portfolio items */
+    .pgrid-landscape.pgrid-2col {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; margin-bottom: 5rem;
+    }
+    .stat-cell {
+      padding: 2.5rem 2rem; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-n {
+      font-family: var(--ff-disp); font-size: clamp(2.4rem,5vw,3.8rem); font-weight: 800;
+      color: var(--accent); line-height: 1; margin-bottom: .4rem;
+      animation: statglow 3s ease-in-out infinite alternate;
+    }
+    .stat-l { font-family: var(--ff-brand); font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    @keyframes statglow {
+      0%   { text-shadow:0 0 0 rgba(117,138,113,0); }
+      100% { text-shadow:0 0 28px rgba(117,138,113,.4), 0 0 8px rgba(117,138,113,.2); }
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: #1a1a1a; padding: 50px 0 80px; overflow:hidden; }
+    .stagger-wrap { position:relative; height:440px; width:100%; user-select:none; }
+    .stagger-nav { display:flex; justify-content:center; gap:12px; margin-top:28px; }
+    .stagger-btn {
+      width:52px; height:52px; display:flex; align-items:center; justify-content:center;
+      background:#1e1e1e; border:2px solid rgba(255,255,255,0.15); color:#fff;
+      cursor:pointer; transition:background .2s, border-color .2s;
+    }
+    .stagger-btn:hover { background:#758a71; border-color:#758a71; }
+    .scard-t {
+      position:absolute; left:50%; top:50%;
+      padding:24px; border:2px solid rgba(255,255,255,0.1);
+      background:#1e1e1e; color:#fff; cursor:pointer;
+      transition:transform 0.5s ease, box-shadow 0.5s ease, background 0.3s ease;
+      box-sizing:border-box; overflow:hidden;
+      clip-path: polygon(40px 0%, calc(100% - 40px) 0%, 100% 40px, 100% 100%, calc(100% - 40px) 100%, 40px 100%, 0 100%, 0 0);
+    }
+    .scard-t.scard-center { background:#758a71; border-color:#758a71; box-shadow:0 8px 0 4px rgba(255,255,255,0.08); }
+    .scard-corner { position:absolute; display:block; width:71px; height:2px; background:rgba(255,255,255,0.18); right:-2px; top:38px; transform:rotate(45deg); transform-origin:top right; }
+    .scard-av { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.15); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:700; font-size:.9rem; margin-bottom:12px; box-shadow:3px 3px 0 rgba(0,0,0,0.2); flex-shrink:0; }
+    .scard-center .scard-av { background:rgba(255,255,255,0.25); }
+    .scard-stars { font-size:.95rem; color:#f59e0b; letter-spacing:.1em; margin-bottom:10px; line-height:1; }
+    .scard-quote { font-family:'Anonymous Pro',monospace; font-size:.86rem; line-height:1.65; color:rgba(255,255,255,0.72); margin:0 0 44px 0; display:-webkit-box; -webkit-line-clamp:5; line-clamp:5; -webkit-box-orient:vertical; overflow:hidden; }
+    .scard-center .scard-quote { color:rgba(255,255,255,0.92); }
+    .scard-by { position:absolute; bottom:20px; left:24px; right:24px; font-family:'Anonymous Pro',monospace; font-size:.72rem; font-style:italic; color:rgba(255,255,255,0.48); margin:0; }
+    .scard-center .scard-by { color:rgba(255,255,255,0.78); }
+
+    /* Client logos */
+    .client-logos { padding:3.5rem 2rem 3rem; text-align:center; }
+    .client-logos-label { font-family:var(--ff-brand); font-size:.65rem; letter-spacing:.28em; text-transform:uppercase; color:rgba(255,255,255,.65); margin-bottom:2.5rem; }
+    .logos-row { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:2.5rem 4.5rem; max-width:1000px; margin:0 auto; }
+    .logo-item { display:flex; align-items:center; justify-content:center; }
+    .logo-item img { height:44px; width:auto; max-width:160px; object-fit:contain; display:block; filter:brightness(0) invert(1); opacity:.7; transition:opacity .3s ease, transform .3s ease; }
+    .logo-item img:hover { opacity:1; transform:scale(1.1); }
+
+    /* ── CTA SECTION ── */
+    #cta-section { background:#ffffff; position:relative; overflow:hidden; }
+    .cta-inner { max-width:720px; margin:0 auto; text-align:center; }
+    .cta-inner .h2 { margin-bottom:1rem; }
+    .cta-inner p { font-family:var(--ff-brand); font-size:1rem; color:var(--text); line-height:1.8; margin-bottom:2.5rem; }
+    .cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      background:var(--dark); border-top:1px solid rgba(255,255,255,.08);
+      padding:2.5rem 5rem; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:1.25rem;
+    }
+    .flogo { height:30px; opacity:.85; }
+    .fcopy { font-family:var(--ff-brand); font-size:.62rem; letter-spacing:.08em; color:#fff; text-align:center; }
+    .flinks { display:flex; gap:2rem; list-style:none; justify-content:flex-end; }
+    .flinks a { font-family:var(--ff-brand); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:#fff; transition:.2s; }
+    .flinks a:hover { color:var(--accent-l); }
+
+    /* ── SCROLL REVEAL ── */
+    .rv { opacity:0; transform:translateY(28px); }
+    .rv.vis { animation:rvup .7s var(--ease) forwards; }
+    @keyframes rvup { to { opacity:1; transform:translateY(0); } }
+    .rvs > * { opacity:0; transform:translateY(20px); }
+    .rvs.vis > * { animation:rvup .6s var(--ease) forwards; }
+    .rvs.vis > *:nth-child(1){animation-delay:0s}
+    .rvs.vis > *:nth-child(2){animation-delay:.1s}
+    .rvs.vis > *:nth-child(3){animation-delay:.2s}
+    .rvs.vis > *:nth-child(4){animation-delay:.3s}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1100px){
+      nav,nav.sc{padding-left:2.5rem;padding-right:2.5rem}
+      .hero-content{grid-template-columns:1fr 1fr;gap:3rem;padding:8rem 3rem 5rem}
+      .sgrid{grid-template-columns:1fr 1fr}
+      .pgrid-landscape.pgrid-2col { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:860px){
+      .hero-content{grid-template-columns:1fr;padding:7rem 2rem 4rem;gap:3rem}
+      .hero-left{align-items:center;text-align:center}
+      .hero-eyebrow{justify-content:center}
+      .hero-sub{margin-left:auto;margin-right:auto}
+      .hero-btns{justify-content:center}
+      .hero-right{justify-content:center}
+      .hero-portrait-wrap{max-width:360px;padding:1rem 0 3rem}
+    }
+    @media(max-width:768px){
+      nav,nav.sc{padding-left:1.25rem;padding-right:1.25rem}
+      .nav-links{display:none} .ham{display:flex}
+      .sec{padding:5rem 1.25rem} .sec-full{padding:5rem 1.25rem}
+      .sgrid{grid-template-columns:1fr}
+      .scard{text-align:center;padding:2rem 1.5rem;align-items:center}
+      .stitle{justify-content:center}
+      .sico{margin-left:auto;margin-right:auto}
+      #work{padding:40px 20px}
+      .work-head{flex-direction:column;align-items:flex-start}
+      footer{padding:2rem 1.25rem;grid-template-columns:1fr;justify-items:center;text-align:center}
+      .flinks{flex-wrap:wrap;justify-content:center}
+      .stats-strip{grid-template-columns:1fr}
+      .stat-cell{border-right:none;border-bottom:1px solid var(--border)}
+      .stat-cell:last-child{border-bottom:none}
+      .hero-btns{flex-direction:column;width:100%}
+      .hero-btns a,.hero-btns button{width:100%;text-align:center}
+      .pgrid-landscape { grid-template-columns: 1fr; }
+      .pgrid-landscape .pi-ov { padding:1.5rem 1.25rem 1.25rem; }
+      .cta-btns{flex-direction:column;align-items:center}
+      #testimonials{padding:36px 0 60px}
+      .stagger-wrap{height:380px}
+    }
+    @media(max-width:480px){
+      .hero-content{padding:6rem 1.5rem 3rem}
+    }
+
+    /* ── CONTACT ── */
+    #contact { position:relative; overflow:hidden; background:var(--bg); }
+    .cgrid { display:grid; grid-template-columns:1fr 1.2fr; gap:5rem; align-items:start; }
+    .cdesc { font-size:.95rem; color:var(--text); line-height:1.82; margin-bottom:2.5rem; }
+    .cdetails { display:flex; flex-direction:column; gap:1.25rem; margin-bottom:2.5rem; }
+    .citem { display:flex; align-items:center; gap:.9rem; }
+    .cico { width:38px; height:38px; border:1px solid var(--border); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--accent); flex-shrink:0; background:var(--bg); }
+    .ctxt { font-family:var(--ff-brand); font-size:.78rem; color:var(--text); }
+    .socials { display:flex; gap:.75rem; }
+    .soc { width:42px; height:42px; border:1px solid var(--border); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--muted); transition:.2s; background:var(--bg); }
+    .soc:hover { border-color:var(--accent); color:var(--accent); background:rgba(117,138,113,.06); }
+    .cal-embed-wrap { background:var(--bg); border-radius:12px; border:1px solid var(--border); overflow:hidden; box-shadow:var(--shadow); }
+    @media(max-width:900px) { .cgrid { grid-template-columns:1fr; gap:3rem; } }
+
+    /* ── WHITE LABEL ── */
+    #white-label { background: var(--bg2); }
+    .wl-head { text-align: center; margin-bottom: 2.5rem; }
+    .wl-intro {
+      font-family: var(--ff-brand); font-size: .95rem;
+      color: var(--text); line-height: 1.78;
+      max-width: 520px; margin: 0 auto;
+    }
+    .wl-pricing-toggle {
+      display: flex; align-items: center; justify-content: center;
+      gap: .6rem; margin: 0 auto;
+      background: transparent; border: 1.5px solid rgba(117,138,113,.4); color: var(--dark);
+      font-family: var(--ff-brand); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+      padding: .65rem 1.6rem; border-radius: 50px; cursor: pointer;
+      transition: border-color .25s var(--ease), background .25s var(--ease), color .25s var(--ease);
+    }
+    .wl-pricing-toggle:hover { border-color: var(--accent); background: rgba(117,138,113,.07); color: var(--accent); }
+    .wl-pricing-toggle svg { flex-shrink: 0; transition: transform .35s var(--ease); }
+    .wl-pricing-toggle.wl-open svg { transform: rotate(180deg); }
+    .wl-pricing-wrap { overflow: hidden; max-height: 0; transition: max-height .55s cubic-bezier(.4,0,.2,1), opacity .4s var(--ease); opacity: 0; }
+    .wl-pricing-wrap.wl-open { max-height: 2400px; opacity: 1; }
+    .wl-pricing-inner { padding-top: 2rem; }
+    .wl-pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; align-items: start; margin-bottom: 1.5rem; }
+    .wl-pricing-col { display: flex; flex-direction: column; gap: 1rem; }
+    .wl-pricing-col-header { text-align: center; padding-bottom: .85rem; border-bottom: 2px solid rgba(117,138,113,.25); margin-bottom: .25rem; }
+    .wl-col-label { font-family: var(--ff-disp); font-size: 1.05rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--dark); }
+    .wl-disclaimer { text-align: center; font-size: .78rem; color: #758a71; margin: 0 0 1.5rem; }
+    .wl-tier {
+      background: #ffffff; padding: 1.6rem 1.75rem 1.75rem;
+      border-radius: 12px; border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      position: relative; overflow: hidden;
+      transition: box-shadow .35s var(--ease), transform .35s var(--ease);
+    }
+    .wl-tier:hover { box-shadow: 0 8px 28px rgba(0,0,0,.1); transform: translateY(-3px); }
+    .wl-tier::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); border-radius: 12px 12px 0 0; transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+    .wl-tier:hover::before { transform: scaleX(1); }
+    .wl-tier-featured { border: 1.5px solid rgba(117,138,113,.45); background: #ffffff; box-shadow: 0 4px 20px rgba(117,138,113,.1); }
+    .wl-tier-featured::before { transform: scaleX(1); }
+    .wl-tier-tag { font-family: var(--ff-brand); font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: #1d4ed8; border: 1px solid #93c5fd; padding: .22rem .7rem; border-radius: 50px; background: #dbeafe; display: inline-block; margin-bottom: 1rem; }
+    .wl-tier-price { display: flex; align-items: baseline; gap: .4rem; margin-bottom: .35rem; flex-wrap: wrap; }
+    .wl-tier-price-from { font-family: var(--ff-brand); font-size: .72rem; color: #758a71; }
+    .wl-tier-price-amount { font-family: var(--ff-disp); font-size: 1.6rem; font-weight: 800; color: #758a71; line-height: 1; }
+    .wl-tier-price-unit { font-family: var(--ff-brand); font-size: .72rem; color: #758a71; }
+    .wl-tier-name { font-family: var(--ff-disp); font-size: 1rem; font-weight: 700; color: var(--dark); margin: .5rem 0 .6rem; line-height: 1.3; }
+    .wl-tier-desc { font-family: var(--ff-brand); font-size: .85rem; color: var(--text); line-height: 1.72; margin-bottom: .85rem; }
+    .wl-cta { text-align: center; display: flex; flex-direction: column; align-items: center; gap: .85rem; }
+
+    /* ── PRICING ── */
+    #pricing { background: #ffffff; }
+    #pricing.sec-full { padding: 6rem 5rem; }
+    .pricing-head { text-align: center; margin-bottom: 1.5rem; }
+    .pricing-note-box {
+      font-family: var(--ff-brand); font-size: .88rem;
+      color: var(--text); background: rgba(117,138,113,.07);
+      border: 1px solid rgba(117,138,113,.22); border-radius: 10px;
+      padding: 1rem 1.75rem; max-width: 720px; margin: 0 auto 3.5rem;
+      text-align: center; line-height: 1.78; font-style: italic;
+    }
+    .pgrid-pricing {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem; margin-bottom: 3rem;
+    }
+    .ptier {
+      background: #fff; padding: 2rem 1.75rem 1.75rem;
+      border-radius: 12px; border: 1px solid var(--border);
+      box-shadow: var(--shadow); position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: box-shadow .35s var(--ease), transform .35s var(--ease);
+    }
+    .ptier:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .ptier::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent); border-radius: 12px 12px 0 0;
+      transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease);
+    }
+    .ptier:hover::before { transform: scaleX(1); }
+    .ptier-featured { border: 1.5px solid rgba(117,138,113,.5); box-shadow: 0 4px 24px rgba(117,138,113,.12); }
+    .ptier-featured::before { transform: scaleX(1); }
+    .ptier-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-family: var(--ff-brand); font-size: .52rem; letter-spacing: .14em; text-transform: uppercase;
+      color: #fff; background: var(--accent); padding: .22rem .72rem; border-radius: 50px;
+    }
+    .ptier-num { font-family: var(--ff-disp); font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); margin-bottom: .4rem; }
+    .ptier-name { font-family: var(--ff-disp); font-size: 1.08rem; font-weight: 700; color: var(--dark); margin-bottom: .6rem; line-height: 1.25; padding-right: 3.5rem; }
+    .ptier-price { display: flex; align-items: baseline; gap: .3rem; margin-bottom: .85rem; flex-wrap: wrap; }
+    .ptier-price-from { font-family: var(--ff-brand); font-size: .68rem; color: var(--muted); }
+    .ptier-price-amount { font-family: var(--ff-disp); font-size: 1.45rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .ptier-price-unit { font-family: var(--ff-brand); font-size: .68rem; color: var(--muted); }
+    .ptier-desc {
+      font-family: var(--ff-brand); font-size: .82rem; color: var(--text);
+      line-height: 1.72; margin-bottom: 1rem; padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .ptier-best { font-family: var(--ff-brand); font-size: .7rem; letter-spacing: .04em; color: var(--accent); margin-bottom: 1rem; font-style: italic; }
+    .ptier-list {
+      list-style: none; padding: 0; margin: 0 0 1rem;
+      display: flex; flex-direction: column; gap: .42rem; flex: 1;
+    }
+    .ptier-list li {
+      font-family: var(--ff-brand); font-size: .78rem; color: var(--text);
+      display: flex; align-items: flex-start; gap: .55rem; line-height: 1.55;
+    }
+    .ptier-list li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
+    .ptier-turn {
+      font-family: var(--ff-brand); font-size: .7rem; color: var(--muted);
+      margin: .75rem 0 1.25rem; display: flex; align-items: center; gap: .4rem;
+    }
+    .ptier-turn::before { content: '⏱'; font-size: .8rem; }
+    .ptier-cta {
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+      font-family: var(--ff-brand); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+      color: #fff; background: #1a1a1a; border: none;
+      padding: .85rem 1.5rem; border-radius: 50px;
+      cursor: pointer; transition: background .25s, transform .2s;
+      text-decoration: none; margin-top: auto; white-space: nowrap;
+    }
+    .ptier-cta:hover { background: #333; transform: translateY(-2px); }
+    .ptier-featured .ptier-cta { background: var(--accent); }
+    .ptier-featured .ptier-cta:hover { background: #637a5f; }
+    .addons-wrap {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem 2.5rem;
+    }
+    .addons-title { font-family: var(--ff-disp); font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: .35rem; }
+    .addons-sub { font-family: var(--ff-brand); font-size: .82rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .addons-pills { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .addon-pill {
+      font-family: var(--ff-brand); font-size: .68rem; letter-spacing: .04em;
+      color: var(--dark); background: var(--bg2); border: 1px solid var(--border);
+      padding: .42rem 1rem; border-radius: 50px;
+      display: flex; align-items: center; gap: .35rem;
+    }
+    .addon-plus { color: var(--accent); font-weight: 700; font-size: .85rem; }
+
+    /* Responsive for new sections */
+    @media(max-width:1100px) {
+      .pgrid-pricing { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    }
+    @media(max-width:768px) {
+      #pricing.sec-full { padding: 4rem 1.25rem; }
+      .pgrid-pricing { grid-template-columns: 1fr; }
+      .addons-wrap { padding: 1.5rem 1.25rem; }
+      .wl-pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div class="m-nav" id="MNAV">
+  <a href="/" onclick="mnav()">Home</a>
+  <a href="/web-development" onclick="mnav()" style="color:var(--accent)">Web Development</a>
+  <a href="/content-creation" onclick="mnav()">Content Creation</a>
+  <button class="nav-cta" style="font-size:1rem;padding:.85rem 2rem;border-radius:50px;"
+    data-cal-namespace="15min"
+    data-cal-link="bykikimedia/15min"
+    data-cal-config='{"layout":"month_view"}'>Book a Call</button>
+</div>
+
+<!-- NAV -->
+<nav id="NAV">
+  <a href="/">
+    <img src="../brand_assets/kiki logo.png" alt="By Kiki Media" class="nav-logo" width="116" height="42" decoding="async">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/web-development" class="nav-active">Web Development</a></li>
+    <li><a href="/content-creation">Content Creation</a></li>
+    <li>
+      <button class="nav-cta"
+        data-cal-namespace="15min"
+        data-cal-link="bykikimedia/15min"
+        data-cal-config='{"layout":"month_view"}'>
+        Book a Call
+      </button>
+    </li>
+  </ul>
+  <button class="ham" onclick="mnav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <div class="grid-bg" id="hero-grid">
+    <div class="grid-static"></div>
+    <div class="grid-reveal" id="hero-grid-reveal"></div>
+    <div class="grid-orb grid-orb-orange"></div>
+    <div class="grid-orb grid-orb-primary"></div>
+    <div class="grid-orb grid-orb-blue"></div>
+  </div>
+  <div id="particles"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-proof-badge" id="HBG">
+        <div class="hero-proof-avatars">
+          <div class="hero-proof-av">G</div>
+          <div class="hero-proof-av">M</div>
+          <div class="hero-proof-av">A</div>
+          <div class="hero-proof-av">R</div>
+          <div class="hero-proof-av">K</div>
+        </div>
+        <div class="hero-proof-text">
+          <span class="hero-proof-star">★</span>
+          Trusted by 100+ Clients
+          <span class="hero-proof-star">★</span>
+        </div>
+      </div>
+
+      <div class="hero-eyebrow" id="HE">Web Development for Clinics</div>
+      <h1 class="hero-h1" id="HH">Your Clinic Deserves<br>a Website That<br><em>Actually Converts.</em></h1>
+      <p class="hero-sub" id="HS">I build high-converting websites, ecommerce stores, and landing pages exclusively for health, beauty, aesthetic, and wellness clinics. More bookings. Less guesswork.</p>
+      <div class="hero-btns" id="HB">
+        <button
+          class="btn btn-fill"
+          data-cal-namespace="15min"
+          data-cal-link="bykikimedia/15min"
+          data-cal-config='{"layout":"month_view"}'>
+          Get a Free Strategy Call
+        </button>
+        <a href="#work" class="btn btn-ghost btn-non-hero">View Work <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-portrait-wrap">
+        <div class="hero-portrait">
+          <img src="../brand_assets/opt/IMG_1321.jpg" alt="Karin - Clinic Web Development Melbourne" width="1200" height="800" fetchpriority="high" decoding="async">
+        </div>
+        <div class="satisfied-badge">
+          <div class="badge-text">
+            <span class="badge-percent">100+</span>
+            <span class="badge-label">Projects Delivered</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll" id="HSC">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section id="services" class="sec-full">
+  <div class="sec-inner">
+    <div class="svc-head">
+      <div class="lbl lbl-c rv">Services</div>
+      <h2 class="h2 rv" style="text-align:center">What I <em>Specialise In</em></h2>
+    </div>
+
+    <div class="sgrid rvs">
+
+      <div class="scard">
+        <div class="snum">01</div>
+        <h3 class="stitle">Clinic Website Builds</h3>
+        <p class="sdesc">Full custom websites built specifically for clinics. Clean design, fast load times, and layouts engineered to convert visitors into bookings. Includes on-page SEO, mobile optimisation, and booking integration.</p>
+        <div class="stags">
+          <span class="stag">Custom Design</span><span class="stag">Booking Integration</span>
+          <span class="stag">SEO</span><span class="stag">Mobile Ready</span>
+        </div>
+      </div>
+
+      <div class="scard">
+        <div class="snum">02</div>
+        <h3 class="stitle">High-Converting Landing Pages</h3>
+        <p class="sdesc">Single-focus pages built to capture leads, promote treatments, and drive bookings. Persuasive copywriting, clear CTAs, and fast load speeds for clinic campaigns and paid ads.</p>
+        <div class="stags">
+          <span class="stag">Lead Capture</span><span class="stag">Copywriting</span>
+          <span class="stag">Paid Ads Ready</span><span class="stag">Fast Load</span>
+        </div>
+      </div>
+
+      <div class="scard">
+        <div class="snum">03</div>
+        <h3 class="stitle">Ecommerce for Clinics</h3>
+        <p class="sdesc">Sell skincare products, treatments, memberships, and gift cards directly from your clinic website. Shopify builds tailored for clinics — beautiful, trusted, and optimised to increase average order value.</p>
+        <div class="stags">
+          <span class="stag">Shopify</span><span class="stag">Product Sells</span>
+          <span class="stag">CRO</span><span class="stag">Gift Cards</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rv" style="text-align:center;margin-top:2.5rem;">
+      <button
+        class="btn btn-fill btn-non-hero"
+        data-cal-namespace="15min"
+        data-cal-link="bykikimedia/15min"
+        data-cal-config='{"layout":"month_view"}'>
+        Claim Your Free Strategy Session <span class="btn-arrow">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════ WORK ══════════ -->
+<div class="work-grid-wrap" id="work-section-wrap">
+  <div class="grid-bg" id="work-grid">
+    <div class="grid-static"></div>
+    <div class="grid-reveal" id="work-grid-reveal"></div>
+  </div>
+  <section id="work" class="sec">
+    <div class="work-head">
+      <div>
+        <div class="lbl rv">Portfolio</div>
+        <h2 class="h2 rv">Selected <em>Projects</em></h2>
+      </div>
+      <div class="filters rv" id="FTABS">
+        <button class="ftab on" data-f="all">All</button>
+        <button class="ftab" data-f="clinics">Clinics</button>
+        <button class="ftab" data-f="other">Other Niches</button>
+      </div>
+    </div>
+
+    <!-- LARGE landscape portfolio -->
+    <div class="pgrid-landscape rv" id="PGRID">
+
+      <!-- ── CLINICS: Glow Saunas 1 (full width) ── -->
+      <div class="pi" data-c="clinics" data-type="shopify" data-url="https://www.glowsaunas.com.au/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/Glows1.jpg" alt="Glow Saunas — Health & Wellness Clinic Website" loading="lazy">
+        </div>
+        <div class="pi-ov">
+          <div class="pi-ov-left">
+            <div class="ov-cat">Ecommerce · Health &amp; Wellness Clinic</div>
+            <div class="ov-title">Glow Saunas</div>
+          </div>
+          <div class="ov-cta">View Live Site →</div>
+        </div>
+      </div>
+
+      <!-- ── CLINICS: Glow Saunas 2 (full width) ── -->
+      <div class="pi" data-c="clinics" data-type="shopify" data-url="https://www.glowsaunas.com.au/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/Glows2.jpg" alt="Glow Saunas — Shopify Ecommerce Build" loading="lazy">
+        </div>
+        <div class="pi-ov">
+          <div class="pi-ov-left">
+            <div class="ov-cat">Shopify Development · Health &amp; Wellness</div>
+            <div class="ov-title">Glow Saunas — Product Pages</div>
+          </div>
+          <div class="ov-cta">View Live Site →</div>
+        </div>
+      </div>
+
+      <!-- ── CLINICS: Glow Saunas 3 ── -->
+      <div class="pi" data-c="clinics" data-type="shopify" data-url="https://www.glowsaunas.com.au/">
+        <div class="pi-in">
+          <img src="../brand_assets/Glow1.png" alt="Glow Saunas — Website Landing Page" loading="lazy">
+        </div>
+        <div class="pi-ov">
+          <div class="pi-ov-left">
+            <div class="ov-cat">Landing Page · Wellness Clinic</div>
+            <div class="ov-title">Glow Saunas — Homepage</div>
+          </div>
+          <div class="ov-cta">View Live Site →</div>
+        </div>
+      </div>
+
+      <!-- ── CLINICS: Glow Saunas 4 ── -->
+      <div class="pi" data-c="clinics" data-type="shopify" data-url="https://www.glowsaunas.com.au/">
+        <div class="pi-in">
+          <img src="../brand_assets/Glow2.png" alt="Glow Saunas — Shopify Store" loading="lazy">
+        </div>
+        <div class="pi-ov">
+          <div class="pi-ov-left">
+            <div class="ov-cat">Ecommerce · Wellness Clinic</div>
+            <div class="ov-title">Glow Saunas — Shop</div>
+          </div>
+          <div class="ov-cta">View Live Site →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: My Jazzy Blooms ── -->
+      <div class="pi" data-c="other" data-type="shopify" data-url="https://myjazzyblooms.com.au/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/Myjazzy.jpg" alt="My Jazzy Blooms — Shopify Florist Website" loading="lazy">
+        </div>
+        <div class="pi-ov">
+          <div class="pi-ov-left">
+            <div class="ov-cat">Shopify Development · Florist</div>
+            <div class="ov-title">My Jazzy Blooms</div>
+          </div>
+          <div class="ov-cta">View Live Site →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Homeshowoff ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/reel/DEApqkgJGf1/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/2homeshowoff.jpg" alt="Homeshowoff — Content & Web Design" loading="lazy">
+        </div>
+        <div class="pi-ov">
+          <div class="pi-ov-left">
+            <div class="ov-cat">Web Design · Real Estate</div>
+            <div class="ov-title">Homeshowoff</div>
+          </div>
+          <div class="ov-cta">View →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Arthaus ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/p/DRhpGGAjBVN/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/arthaus.jpg" alt="Arthaus — Design & Web" loading="lazy">
+        </div>
+        <div class="pi-ov">
+          <div class="pi-ov-left">
+            <div class="ov-cat">Design · Arts &amp; Culture</div>
+            <div class="ov-title">Arthaus</div>
+          </div>
+          <div class="ov-cta">View →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Shelanous ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/p/DVnTl1oEd--/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/episode2.jpg" alt="Shelanous — Digital Presence" loading="lazy">
+        </div>
+        <div class="pi-ov">
+          <div class="pi-ov-left">
+            <div class="ov-cat">Digital · Entertainment</div>
+            <div class="ov-title">Shelanous</div>
+          </div>
+          <div class="ov-cta">View →</div>
+        </div>
+      </div>
+
+      <!-- ── OTHER NICHES: Shelly ── -->
+      <div class="pi" data-c="other" data-type="ig" data-url="https://www.instagram.com/p/DVp0Q38EcbN/">
+        <div class="pi-in">
+          <img src="../brand_assets/opt/weserved.jpg" alt="Shelly — Digital Design" loading="lazy">
+        </div>
+        <div class="pi-ov">
+          <div class="pi-ov-left">
+            <div class="ov-cat">Design · Lifestyle</div>
+            <div class="ov-title">Shelly</div>
+          </div>
+          <div class="ov-cta">View →</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════ PRICING ══════════ -->
+<section id="pricing" class="sec-full">
+  <div class="sec-inner">
+
+    <div class="pricing-head">
+      <div class="lbl lbl-c rv">Packages</div>
+      <h2 class="h2 rv" style="text-align:center">Web <em>Pricing</em></h2>
+    </div>
+    <p class="pricing-note-box rv">All builds are scoped individually. Pricing below reflects starting points — final quotes are based on complexity, integrations, and ongoing needs.</p>
+
+    <div class="pgrid-pricing rvs">
+
+      <!-- Tier 1 -->
+      <div class="ptier">
+        <div class="ptier-num">Tier 01</div>
+        <div class="ptier-name">Starter Landing Page</div>
+        <div class="ptier-price">
+          <span class="ptier-price-from">from</span>
+          <span class="ptier-price-amount">$800</span>
+          <span class="ptier-price-unit">per page</span>
+        </div>
+        <p class="ptier-desc">A clean, fast lead capture page that gets your clinic online and generating enquiries quickly.</p>
+        <p class="ptier-best">✦ Best for clinics starting out online</p>
+        <ul class="ptier-list">
+          <li>Single-page design (no CMS)</li>
+          <li>Up to 5 sections (hero, services, about, testimonials, contact)</li>
+          <li>Mobile responsive</li>
+          <li>Basic contact form</li>
+          <li>SEO meta setup</li>
+          <li>1 revision round after first draft</li>
+        </ul>
+        <div class="ptier-turn">Turnaround: 5–7 business days</div>
+        <button class="ptier-cta" data-cal-namespace="15min" data-cal-link="bykikimedia/15min" data-cal-config='{"layout":"month_view"}'>Get a Quote →</button>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="ptier ptier-featured">
+        <div class="ptier-num">Tier 02</div>
+        <div class="ptier-name">Professional Landing Page</div>
+        <div class="ptier-price">
+          <span class="ptier-price-from">from</span>
+          <span class="ptier-price-amount">$1,500</span>
+          <span class="ptier-price-unit">per page</span>
+        </div>
+        <p class="ptier-desc">High-converting pages built for paid ads campaigns and serious lead generation for clinics.</p>
+        <p class="ptier-best">✦ Best for clinics running paid ads</p>
+        <ul class="ptier-list">
+          <li>Single or dual-page design</li>
+          <li>Up to 8 sections with custom layout</li>
+          <li>Animations and scroll effects</li>
+          <li>Booking integration (Calendly, Cliniko, HotDoc)</li>
+          <li>Lead capture form + CRM connection</li>
+          <li>Mobile responsive + performance optimised</li>
+          <li>2 revision rounds</li>
+        </ul>
+        <div class="ptier-turn">Turnaround: 7–10 business days</div>
+        <button class="ptier-cta" data-cal-namespace="15min" data-cal-link="bykikimedia/15min" data-cal-config='{"layout":"month_view"}'>Get a Quote →</button>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="ptier">
+        <div class="ptier-num">Tier 03</div>
+        <div class="ptier-name">Shopify Clinic Store (Starter)</div>
+        <div class="ptier-price">
+          <span class="ptier-price-from">from</span>
+          <span class="ptier-price-amount">$1,500</span>
+          <span class="ptier-price-unit">per store</span>
+        </div>
+        <p class="ptier-desc">Your clinic selling products, gift vouchers, and memberships online — set up fast and brand-right.</p>
+        <p class="ptier-best">✦ Best for clinics entering ecommerce</p>
+        <ul class="ptier-list">
+          <li>Shopify setup from scratch or refresh</li>
+          <li>Up to 10 products configured</li>
+          <li>Brand-aligned theme customisation (no custom code)</li>
+          <li>Homepage, product pages, cart, checkout</li>
+          <li>Apps: reviews, upsell, email capture</li>
+          <li>Mobile responsive</li>
+          <li>2 revision rounds</li>
+        </ul>
+        <div class="ptier-turn">Turnaround: 10–14 business days</div>
+        <button class="ptier-cta" data-cal-namespace="15min" data-cal-link="bykikimedia/15min" data-cal-config='{"layout":"month_view"}'>Get a Quote →</button>
+      </div>
+
+      <!-- Tier 4 -->
+      <div class="ptier">
+        <div class="ptier-num">Tier 04</div>
+        <div class="ptier-name">Shopify Clinic Store (Custom)</div>
+        <div class="ptier-price">
+          <span class="ptier-price-from">from</span>
+          <span class="ptier-price-amount">$3,000</span>
+          <span class="ptier-price-unit">per store</span>
+        </div>
+        <p class="ptier-desc">A flagship ecommerce presence that scales with your clinic — fully custom coded, fully conversion-optimised.</p>
+        <p class="ptier-best">✦ Best for clinics wanting a scalable flagship</p>
+        <ul class="ptier-list">
+          <li>Fully custom Shopify theme (coded to spec)</li>
+          <li>Unlimited products</li>
+          <li>Custom sections and page templates</li>
+          <li>Advanced apps: subscriptions, loyalty, booking, CRM sync</li>
+          <li>Custom checkout experience</li>
+          <li>Speed and CRO optimisation</li>
+          <li>SEO structure setup</li>
+          <li>3 revision rounds + post-launch support period</li>
+        </ul>
+        <div class="ptier-turn">Turnaround: 3–5 weeks depending on scope</div>
+        <button class="ptier-cta" data-cal-namespace="15min" data-cal-link="bykikimedia/15min" data-cal-config='{"layout":"month_view"}'>Get a Quote →</button>
+      </div>
+
+    </div>
+
+    <!-- Add-ons -->
+    <div class="addons-wrap rv">
+      <div class="addons-title">Add-ons</div>
+      <p class="addons-sub">Enhance any tier with the following extras — pricing on request.</p>
+      <div class="addons-pills">
+        <span class="addon-pill"><span class="addon-plus">+</span> Copywriting for all pages</span>
+        <span class="addon-pill"><span class="addon-plus">+</span> Logo or brand asset creation</span>
+        <span class="addon-pill"><span class="addon-plus">+</span> Monthly maintenance retainer</span>
+        <span class="addon-pill"><span class="addon-plus">+</span> Google Analytics + Meta Pixel setup</span>
+        <span class="addon-pill"><span class="addon-plus">+</span> A/B testing setup for landing pages</span>
+        <span class="addon-pill"><span class="addon-plus">+</span> Additional pages beyond tier scope</span>
+        <span class="addon-pill"><span class="addon-plus">+</span> Email marketing integration (Klaviyo, Mailchimp)</span>
+        <span class="addon-pill"><span class="addon-plus">+</span> Ongoing CRO support</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════ TESTIMONIALS ══════════ -->
+<section id="testimonials">
+  <div class="client-logos rv">
+    <p class="client-logos-label">Trusted by Clinics &amp; Brands</p>
+    <div class="logos-row">
+      <div class="logo-item"><img src="../brand_assets/Glow Saunas.png" alt="Glow Saunas"></div>
+      <div class="logo-item"><img src="../brand_assets/myjazzylogo.png" alt="My Jazzy Blooms"></div>
+      <div class="logo-item"><img src="../brand_assets/Shape Logo Black.png" alt="Shape"></div>
+      <div class="logo-item"><img src="../brand_assets/Homeshowoff logo.png" alt="Homeshowoff"></div>
+      <div class="logo-item"><img src="../brand_assets/Wicked Sista.png" alt="Wicked Sista"></div>
+    </div>
+  </div>
+
+  <div class="stagger-wrap" id="STAGGER"></div>
+
+  <div class="stagger-nav">
+    <button class="stagger-btn" id="SPREV" aria-label="Previous testimonial">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="stagger-btn" id="SNEXT" aria-label="Next testimonial">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <div style="text-align:center;margin-top:40px;padding:0 20px;">
+    <p style="font-family:'Anonymous Pro',monospace;font-size:1rem;margin-bottom:16px;color:rgba(255,255,255,.6);">Ready to get results like these for your clinic?</p>
+    <button
+      class="btn btn-white btn-non-hero"
+      data-cal-namespace="15min"
+      data-cal-link="bykikimedia/15min"
+      data-cal-config='{"layout":"month_view"}'>
+      Book a Free Strategy Session <span class="btn-arrow">→</span>
+    </button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact" class="sec-full">
+  <div class="grid-bg">
+    <div class="grid-static"></div>
+    <div class="grid-reveal" id="contact-grid-reveal"></div>
+    <div class="grid-orb grid-orb-orange"></div>
+    <div class="grid-orb grid-orb-primary"></div>
+    <div class="grid-orb grid-orb-blue"></div>
+  </div>
+  <div class="sec-inner cgrid">
+
+    <div class="contact-left">
+      <div class="lbl rv">Contact</div>
+      <h2 class="h2 rv">Let's Make<br>Something<br><em>Great</em></h2>
+      <p class="cdesc rv">Got a project in mind? Send me a message and let's figure it out — no pitch decks, no fluff, just a good chat about what you need.</p>
+
+      <div class="cdetails rvs">
+        <div class="citem">
+          <div class="cico">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <a href="mailto:bykikimedia@gmail.com" class="ctxt" style="text-decoration:none;color:inherit;">bykikimedia@gmail.com</a>
+        </div>
+        <div class="citem">
+          <div class="cico">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="ctxt">Based in Melbourne · Available Worldwide · Remote</span>
+        </div>
+      </div>
+
+      <div class="socials rv">
+        <a href="https://www.instagram.com/karinsbts/reels/" target="_blank" rel="noopener" class="soc" aria-label="Instagram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/karin-grabow/" target="_blank" rel="noopener" class="soc" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Cal.com Inline Embed -->
+    <div class="cal-embed-wrap rv">
+      <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.6rem;color:var(--dark);margin-bottom:12px;padding:1.5rem 1.5rem 0;">Claim Your Free Strategy Session</h2>
+      <p style="font-family:'Anonymous Pro',monospace;font-size:0.9rem;color:var(--muted);margin-bottom:16px;padding:0 1.5rem;">Let's talk about your project. Pick a time that works for you.</p>
+      <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-15min"></div>
+      <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "15min", {origin:"https://app.cal.com"});
+        Cal.ns["15min"]("inline", {
+          elementOrSelector:"#my-cal-inline-15min",
+          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+          calLink: "bykikimedia/15min",
+        });
+        Cal.ns["15min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#345527"},"dark":{"cal-brand":"#fafafa"}},"hideEventTypeDetails":false,"layout":"month_view"});
+      </script>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="../brand_assets/kiki logo.png" alt="By Kiki Media" class="flogo" width="83" height="30" loading="lazy" decoding="async">
+  <span class="fcopy">© 2026 By Kiki Media. All rights reserved.</span>
+  <ul class="flinks">
+    <li><a href="/">Home</a></li>
+    <li><a href="/web-development">Web Dev</a></li>
+    <li><a href="/content-creation">Content</a></li>
+  </ul>
+</footer>
+
+<!-- LIGHTBOX (minimal, for external links) -->
+<div style="display:none" id="LB"></div>
+
+<!-- Cal.com -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "15min", {origin:"https://app.cal.com"});
+  Cal.ns["15min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#345527"},"dark":{"cal-brand":"#fafafa"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+
+<script>
+/* ── NAV SCROLL ── */
+const NAV = document.getElementById('NAV');
+window.addEventListener('scroll', () => NAV.classList.toggle('sc', scrollY > 80));
+
+/* ── MOBILE NAV ── */
+const MNAV = document.getElementById('MNAV');
+function mnav() { MNAV.classList.toggle('open'); }
+
+/* ── HERO INTRO ── */
+['HBG','HE','HH','HS','HB','HSC'].forEach((id, i) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.opacity = '0'; el.style.transform = 'translateY(22px)';
+  setTimeout(() => {
+    el.style.transition = 'opacity .8s ease, transform .8s cubic-bezier(.25,.46,.45,.94)';
+    el.style.opacity = '1'; el.style.transform = 'translateY(0)';
+  }, 200 + i * 220);
+});
+
+/* ── PARTICLES ── */
+const PC = document.getElementById('particles');
+const pastelColors = ['#FFB3C6','#D4B8E0','#FFDAB9','#B5EAD7','#AED9E0','#FFF5BA'];
+for (let i = 0; i < 22; i++) {
+  const p = document.createElement('div'); p.className = 'pt';
+  const s = Math.random() * 8 + 3;
+  const col = pastelColors[Math.floor(Math.random() * pastelColors.length)];
+  p.style.cssText = `left:${Math.random()*100}%;bottom:${Math.random()*20}%;width:${s}px;height:${s}px;background:${col};animation-duration:${15+Math.random()*18}s;animation-delay:${Math.random()*20}s;opacity:${0.35+Math.random()*0.35};`;
+  PC.appendChild(p);
+}
+
+/* ── GRID MOUSE REVEAL ── */
+function initGridReveal(sectionEl, revealEl) {
+  if (!sectionEl || !revealEl) return;
+  sectionEl.addEventListener('mousemove', (e) => {
+    const rect = sectionEl.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const grad = `radial-gradient(300px circle at ${x}px ${y}px, black, transparent)`;
+    revealEl.style.webkitMaskImage = grad;
+    revealEl.style.maskImage = grad;
+  });
+  sectionEl.addEventListener('mouseleave', () => {
+    const grad = 'radial-gradient(300px circle at -500px -500px, black, transparent)';
+    revealEl.style.webkitMaskImage = grad;
+    revealEl.style.maskImage = grad;
+  });
+}
+initGridReveal(document.getElementById('hero'), document.getElementById('hero-grid-reveal'));
+initGridReveal(document.getElementById('work-section-wrap'), document.getElementById('work-grid-reveal'));
+initGridReveal(document.getElementById('contact'), document.getElementById('contact-grid-reveal'));
+
+/* ── SCROLL REVEAL ── */
+const ro = new IntersectionObserver((ents) => {
+  ents.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rv,.rvs').forEach(el => ro.observe(el));
+
+/* ── PORTFOLIO FILTER ── */
+const FTABS = document.querySelectorAll('.ftab');
+const PIS = document.querySelectorAll('.pi');
+FTABS.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const f = tab.dataset.f;
+    FTABS.forEach(t => t.classList.remove('on')); tab.classList.add('on');
+    PIS.forEach(pi => {
+      const cats = (pi.dataset.c || '').split(' ');
+      const match = f === 'all' || cats.includes(f);
+      if (match) {
+        pi.classList.remove('gone');
+        pi.style.opacity = '0'; pi.style.transform = 'scale(.97)';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          pi.style.transition = 'opacity .4s ease,transform .4s ease';
+          pi.style.opacity = '1'; pi.style.transform = 'scale(1)';
+        }));
+      } else {
+        pi.style.transition = 'opacity .3s ease';
+        pi.style.opacity = '0';
+        setTimeout(() => pi.classList.add('gone'), 300);
+      }
+    });
+  });
+});
+
+/* ── PORTFOLIO CLICK ── */
+PIS.forEach(pi => {
+  pi.addEventListener('click', () => {
+    const type = pi.dataset.type || '';
+    const url = pi.dataset.url || '';
+    if ((type === 'ig' || type === 'shopify') && url) {
+      window.open(url, '_blank', 'noopener');
+    }
+  });
+});
+
+/* ── STAT COUNT-UP ── */
+function countUp(el, target, suffix, duration) {
+  const start = performance.now();
+  function frame(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const val = Math.round(ease * parseFloat(target));
+    el.textContent = val + suffix;
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+const statObs = new IntersectionObserver((ents) => {
+  ents.forEach(e => {
+    if (!e.isIntersecting) return;
+    const n = e.target;
+    const txt = n.dataset.target || n.textContent;
+    const num = parseFloat(txt.replace(/[^0-9.]/g, ''));
+    const suffix = txt.replace(/[0-9.]/g, '');
+    if (!isNaN(num)) countUp(n, num, suffix, 1600);
+    statObs.unobserve(n);
+  });
+}, { threshold: .5 });
+document.querySelectorAll('.stat-n').forEach(n => {
+  n.dataset.target = n.textContent;
+  statObs.observe(n);
+});
+
+/* ── WHITE LABEL PRICING TOGGLE ── */
+function toggleWlPricing(btn){
+  var panel=document.getElementById('wl-pricing-panel');
+  var label=btn.querySelector('.wl-toggle-label');
+  var isOpen=panel.classList.contains('wl-open');
+  if(isOpen){
+    panel.classList.remove('wl-open');
+    btn.classList.remove('wl-open');
+    btn.setAttribute('aria-expanded','false');
+    if(label)label.textContent='View Pricing';
+  } else {
+    panel.classList.add('wl-open');
+    btn.classList.add('wl-open');
+    btn.setAttribute('aria-expanded','true');
+    if(label)label.textContent='Hide Pricing';
+  }
+}
+
+/* ── SERVICE CARD TILT ── */
+document.querySelectorAll('.scard').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    card.style.transform = `translateY(-4px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+
+/* ── STAGGER TESTIMONIALS ── */
+(function () {
+  const data = [
+    { text: '"Karin built our clinic\'s website from scratch and it completely transformed our online presence. Bookings doubled within the first 6 weeks. She understood exactly what aesthetic clinics need."', name: 'Dr. Sarah M.', role: 'Director, Aesthetic Clinic Melbourne', init: 'S' },
+    { text: '"Our Shopify store conversion rate jumped 142% within 60 days. The ecommerce optimisation — from page speed to checkout flow — was exceptional. Revenue speaks for itself."', name: 'Marcus Chen', role: 'Founder, Mivara · Skincare E-commerce', init: 'M' },
+    { text: '"The landing page Karin built for our med spa has generated more leads than anything else we\'ve tried. Clear, fast, and perfectly positioned for our target market."', name: 'Dr. Priya K.', role: 'Owner, Glow Med Spa', init: 'P' },
+    { text: '"A complete Shopify store built for our product launch in 2 weeks — delivered on time and it looked better than brands 10× our size. Absolute game-changer."', name: 'James T.', role: 'SaaS Founder', init: 'J' },
+    { text: '"Karin redesigned our wellness clinic website and the difference was night and day. Patients comment on how professional it looks. Our Google ranking also improved significantly."', name: 'Rachel B.', role: 'Practice Manager, Wellness Clinic', init: 'R' },
+    { text: '"She built us a high-converting landing page for our beauty clinic\'s laser specials campaign. The result? 3x more enquiries in the first month compared to our old page."', name: 'Amy L.', role: 'Marketing Manager, Beauty Clinic', init: 'A' },
+    { text: '"Working with Kiki completely transformed our Shopify store. The attention to detail is unmatched — everything from the product photography layout to the checkout experience was optimised."', name: 'Lena V.', role: 'E-commerce Brand Owner', init: 'L' },
+  ];
+  let list = [...data];
+  const wrap = document.getElementById('STAGGER');
+  if (!wrap) return;
+  function sz() { return window.innerWidth >= 640 ? 320 : 260; }
+  function render() {
+    const s = sz(), step = s / 1.5, half = Math.floor(list.length / 2);
+    wrap.innerHTML = '';
+    list.forEach(function (t, idx) {
+      const pos = idx - half, isC = (pos === 0), isOdd = (pos % 2 !== 0);
+      const ty = isC ? -65 : (isOdd ? 15 : -15);
+      const rot = isC ? 0 : (isOdd ? 2.5 : -2.5);
+      const card = document.createElement('div');
+      card.className = 'scard-t' + (isC ? ' scard-center' : '');
+      card.style.cssText = 'width:' + s + 'px;height:' + s + 'px;transform:translate(-50%,-50%) translateX(' + step * pos + 'px) translateY(' + ty + 'px) rotate(' + rot + 'deg);z-index:' + (isC ? 10 : Math.max(1, 8 - Math.abs(pos))) + ';';
+      if (pos !== 0) card.addEventListener('click', function () { move(pos); });
+      const corner = document.createElement('span'); corner.className = 'scard-corner'; card.appendChild(corner);
+      const av = document.createElement('div'); av.className = 'scard-av'; av.textContent = t.init; card.appendChild(av);
+      const stars = document.createElement('div'); stars.className = 'scard-stars'; stars.textContent = '★★★★★'; card.appendChild(stars);
+      const q = document.createElement('p'); q.className = 'scard-quote'; q.textContent = t.text; card.appendChild(q);
+      const by = document.createElement('p'); by.className = 'scard-by'; by.textContent = '— ' + t.name + ', ' + t.role; card.appendChild(by);
+      wrap.appendChild(card);
+    });
+  }
+  function move(steps) {
+    const nl = [...list];
+    if (steps > 0) { for (let i = 0; i < steps; i++) nl.push(nl.shift()); }
+    else { for (let i = 0; i < -steps; i++) nl.unshift(nl.pop()); }
+    list = nl; render();
+  }
+  const prev = document.getElementById('SPREV'), next = document.getElementById('SNEXT');
+  if (prev) prev.addEventListener('click', function () { move(-1); });
+  if (next) next.addEventListener('click', function () { move(1); });
+  render();
+  window.addEventListener('resize', render);
+})();
+</script>
+</body>
+</html>
